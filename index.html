@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Александр Козлов · Мебель</title>
+<style>
+@font-face{font-family:'Prata';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/prata-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Prata';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/prata-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/jetbrains-mono-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+</style>
+<style>
+/* Layout: портфолио-альбом. Узкая колонка паспорта проекта слева, листы с эскизами справа; на телефоне всё в одну колонку. */
+:root{
+  --paper:#f3f3ef; --ink:#1c1e1d; --graphite:#666b67; --rule:#d6d8d2;
+  --plate:#ffffff; --accent:#2f5d4f; --accent-soft:#e1ebe6;
+  --f-display:"Prata","Georgia","Times New Roman",serif;
+  --f-body:"Golos Text","Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"JetBrains Mono","Consolas","Menlo",monospace;
+  --wrap:1240px; --gut:clamp(16px,4vw,48px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#151716; --ink:#e7e8e3; --graphite:#9aa09b; --rule:#2e322f;
+  --plate:#fbfbf9; --accent:#8cc0ab; --accent-soft:#1f2c27; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#151716; --ink:#e7e8e3; --graphite:#9aa09b; --rule:#2e322f;
+  --plate:#fbfbf9; --accent:#8cc0ab; --accent-soft:#1f2c27; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0}
+.mono{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.02em}
+.label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite)}
+
+/* ---------- hero ---------- */
+header.hero{padding-block:clamp(40px,7vw,88px) clamp(28px,4vw,48px);border-bottom:1px solid var(--rule)}
+.hero-top{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:baseline}
+.hero h1{font-size:clamp(2.6rem,7.2vw,5.6rem);line-height:.98;letter-spacing:-.01em;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);margin-top:clamp(28px,4vw,44px);align-items:end}
+.thesis{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:36em;margin:0}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;border-top:1px solid var(--rule);padding-top:14px}
+.facts b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1}
+.facts span{font-size:.82rem;color:var(--graphite);display:block;margin-top:6px;line-height:1.35}
+.contact{display:flex;gap:10px 22px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.82rem}
+.contact span{user-select:all}
+
+/* ---------- index ---------- */
+nav.index{padding-block:22px;border-bottom:1px solid var(--rule)}
+nav.index ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 10px}
+nav.index a{display:inline-flex;gap:8px;align-items:baseline;text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:6px 14px;font-size:.9rem;transition:border-color .15s,background .15s}
+nav.index a:hover,nav.index a:focus-visible{border-color:var(--accent);background:var(--accent-soft);outline:none}
+nav.index a .mono{color:var(--graphite);font-size:.72rem}
+
+/* ---------- project ---------- */
+section.project{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(24px,4vw,56px);padding-block:clamp(44px,6vw,80px);border-bottom:1px solid var(--rule)}
+.passport{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start;display:grid;gap:18px}
+.passport h2{font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1.05}
+.passport .kind{color:var(--graphite);font-size:.95rem;margin-top:-8px}
+.passport p{margin:0;font-size:.95rem}
+dl.spec{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px;margin:0;border-top:1px solid var(--rule);padding-top:14px}
+dl.spec dt{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--graphite);padding-top:3px}
+dl.spec dd{margin:0;font-size:.9rem;font-variant-numeric:tabular-nums}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-mono);font-size:.7rem;padding:3px 8px;border-radius:4px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.chip.off{background:transparent;color:var(--graphite);border:1px dashed var(--rule)}
+
+.sheets{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;min-width:0}
+figure{margin:0;min-width:0}
+.sheet{grid-column:span 3}
+.sheet.w6{grid-column:span 6}.sheet.w2{grid-column:span 2}.sheet.w4{grid-column:span 4}
+.sheet button{all:unset;box-sizing:border-box;display:block;width:100%;cursor:zoom-in;background:var(--plate);border-radius:3px;overflow:hidden;box-shadow:0 0 0 1px var(--rule)}
+.sheet button:focus-visible{box-shadow:0 0 0 2px var(--accent)}
+.sheet img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .5s ease}
+.sheet.w6 img{aspect-ratio:auto}
+.sheet.fit img{object-fit:contain}
+.sheet.step img{aspect-ratio:16/9;object-fit:cover}
+.sheet.step:nth-last-child(-n+2){grid-column:span 3}
+.sheet button:hover img{transform:scale(1.015)}
+figcaption{font-size:.8rem;color:var(--graphite);margin-top:7px;line-height:1.35}
+
+/* ---------- catalog ---------- */
+section.catalog{padding-block:clamp(44px,6vw,80px)}
+.cat-head{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(24px,4vw,56px);margin-bottom:32px}
+.cat-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1.05}
+.cat-head p{margin:0;max-width:40em}
+.cat{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.cat .sheet{grid-column:auto}
+.cat .sheet button{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:14px}
+.cat .sheet img{aspect-ratio:auto;width:100%;height:100%;object-fit:contain}
+.cat figcaption{color:var(--ink);font-size:.86rem}
+.cat figcaption small{display:block;color:var(--graphite);font-size:.76rem}
+
+footer{border-top:1px solid var(--ink);padding-block:36px 56px}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:end}
+.foot h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+
+/* ---------- lightbox ---------- */
+dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1800px);max-height:94vh}
+dialog::backdrop{background:rgba(12,14,13,.88)}
+dialog img{max-width:min(96vw,1800px);max-height:86vh;width:auto;background:#fff;border-radius:3px}
+dialog p{color:#e7e8e3;font-size:.85rem;margin:10px 2px 0;display:flex;justify-content:space-between;gap:16px}
+dialog button{all:unset;cursor:pointer;font-family:var(--f-mono);font-size:.75rem;color:#e7e8e3;border:1px solid #555;padding:3px 10px;border-radius:4px}
+
+@media (max-width:860px){
+  .hero-grid,section.project,.cat-head{grid-template-columns:minmax(0,1fr)}
+  .passport{position:static}
+  .sheet,.sheet.w2,.sheet.w4{grid-column:span 6}
+  .sheets{gap:10px}
+}
+@media (max-width:520px){.facts{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.cat{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <div class="hero-top">
+    <span class="label">Портфолио · мебель и пространства</span>
+    <div class="contact"><span>+7 985 492-85-96</span><span>fortytwomoscow@gmail.com</span></div>
+  </div>
+  <h1>Александр Козлов.<br>Мебель <em>от эскиза</em><br>до производства</h1>
+  <div class="hero-grid">
+    <p class="thesis">Проектирую торговые точки, коммерческие интерьеры и предметы мебели. Веду вещь целиком: эскиз и габариты под конкретное место, спецификация материалов для цеха, изготовление в своей мастерской с ЧПУ. Образование — дизайн среды (МХПИ) и федоскинская школа миниатюрной живописи.</p>
+    <div class="facts">
+      <div><b>20+</b><span>лет в дизайне</span></div>
+      <div><b>7</b><span>брендов общепита: точки и мебель</span></div>
+      <div><b>42см</b><span>своя мастерская, Федоскино</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="index" aria-label="Проекты">
+  <ol>
+    <li><a href="#panasian">PANASIAN <span class="mono">2022–26</span></a></li>
+    <li><a href="#plovbox">PlovBox <span class="mono">2023–26</span></a></li>
+    <li><a href="#kremlin">ВТБ Кубок Кремля <span class="mono">2019–21</span></a></li>
+    <li><a href="#lucky">Ресторан LUCKY <span class="mono">2014</span></a></li>
+    <li><a href="#west4">Кофейня WEST 4 <span class="mono">2014</span></a></li>
+    <li><a href="#dagestan">Дагестанская лавка <span class="mono">2015–20</span></a></li>
+    <li><a href="#anniehall">Annie Hall <span class="mono">2012–13</span></a></li>
+    <li><a href="#fabrika">Кафе «Фабрика»</a></li>
+    <li><a href="#zoo">Московский зоопарк</a></li>
+    <li><a href="#catalog">Мебель мастерской 42см</a></li>
+    <li><a href="grafika/" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Второе портфолио: Графика и айдентика ↗</a></li>
+  </ol>
+</nav>
+
+<!-- PANASIAN -->
+<section class="project" id="panasian">
+  <div class="passport">
+    <h2>PANASIAN</h2>
+    <div class="kind">Сеть азиатского стрит-фуда</div>
+    <p>Фирменный стиль и три точки на фудкортах, включая Авиапарк. Для каждой точки — эскиз с габаритами под конкретное место и лист материалов для производства: каркас из профильной трубы, перфолист, столешница из нержавейки, отделка рейкой. Лайтбоксы и меню-борды встроены в конструкцию.</p>
+    <dl class="spec">
+      <dt>Годы</dt><dd>2022–2026</dd>
+      <dt>Объекты</dt><dd>3 точки на фудкортах</dd>
+      <dt>Материалы</dt><dd>металлокаркас, перфолист RAL&nbsp;7016, нержавеющая сталь, рейка «светлый дуб», плитка с УФ-печатью</dd>
+      <dt>Роль</dt><dd class="chips"><span class="chip">бренд</span><span class="chip">проект точки</span><span class="chip">спецификация</span></dd>
+    </dl>
+  </div>
+  <div class="sheets">
+    <figure class="sheet w6"><button type="button" data-cap="PANASIAN · островная точка с поворотными ламелями"><img src="img/pa-hero.jpg" alt="Эскиз островной точки PANASIAN с деревянными ламелями" loading="lazy"></button></figure>
+    <figure class="sheet"><button type="button" data-cap="Точка №2 · фасад с габаритами, мм"><img src="img/pa-dim1.jpg" alt="Фасад точки PANASIAN с размерами" loading="lazy"></button><figcaption>Точка №2 · фасад с габаритами, мм</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Точка №2 · общий вид, 3043 × 2385 мм"><img src="img/pa-dim3.jpg" alt="Общий вид точки PANASIAN с размерами" loading="lazy"></button><figcaption>Точка №2 · общий вид, 3043 × 2385 мм</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Авиапарк · лист материалов: рейка, светлый дуб"><img src="img/pa-spec2.jpg" alt="Лист материалов для точки в Авиапарке" loading="lazy"></button><figcaption>Авиапарк · лист материалов для цеха</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Авиапарк · итоговый фасад с навигацией и экранами"><img src="img/pa-spec3.jpg" alt="Итоговый фасад точки PANASIAN в Авиапарке" loading="lazy"></button><figcaption>Авиапарк · итоговый фасад, экраны 42″</figcaption></figure>
+  </div>
+</section>
+
+<!-- PLOVBOX -->
+<section class="project" id="plovbox">
+  <div class="passport">
+    <h2>PlovBox</h2>
+    <div class="kind">Плов и мясо на углях · фудкорты ТЦ</div>
+    <p>Несколько точек для одного бренда в разных форматах: островная, угловая, пристенная. Общая система собирается из одних элементов: рейка на фасаде прилавка, чёрный металлокаркас, узорный фриз с логотипом, меню-борды над раздачей.</p>
+    <dl class="spec">
+      <dt>Годы</dt><dd>2023–2026</dd>
+      <dt>Объекты</dt><dd>Афимолл, Авиапарк, Багратионовский</dd>
+      <dt>Материалы</dt><dd>металлокаркас, деревянная рейка, керамическая плитка</dd>
+      <dt>Роль</dt><dd class="chips"><span class="chip">проект точки</span><span class="chip">визуализация</span></dd>
+    </dl>
+  </div>
+  <div class="sheets">
+    <figure class="sheet w6"><button type="button" data-cap="Афимолл · пристенная точка, 2026"><img src="img/pb-hero.jpg" alt="Пристенная точка PlovBox в торговом центре" loading="lazy"></button></figure>
+    <figure class="sheet"><button type="button" data-cap="Багратионовский · островной вариант"><img src="img/pb-3.jpg" alt="Островная точка PlovBox" loading="lazy"></button><figcaption>Багратионовский · островной вариант</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Багратионовский · вид на кухню"><img src="img/pb-4.jpg" alt="Точка PlovBox, вид на кухню" loading="lazy"></button><figcaption>Багратионовский · вид на кухню</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Авиапарк · PlovBox Grill, мясо на углях"><img src="img/pb-5.jpg" alt="PlovBox Grill в Авиапарке" loading="lazy"></button><figcaption>Авиапарк · PlovBox Grill</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Афимолл · раздача и меню-борды"><img src="img/pb-2.jpg" alt="Раздача PlovBox с меню-бордами" loading="lazy"></button><figcaption>Афимолл · раздача и меню-борды</figcaption></figure>
+    <figure class="sheet w6"><span class="label" style="display:block;margin:18px 0 8px">Как собирается точка · Афимолл, лист за листом</span></figure>
+    <figure class="sheet w2 step"><button type="button" data-cap="Ниша с замерами"><img src="img/pb26-2.jpg" alt="Ниша с замерами" loading="lazy"></button><figcaption><span class="mono">1</span> Ниша с замерами</figcaption></figure>
+    <figure class="sheet w2 step"><button type="button" data-cap="Отделка стен: «мазанка», плитка, рейка"><img src="img/pb26-3.jpg" alt="Отделка стен: «мазанка», плитка, рейка" loading="lazy"></button><figcaption><span class="mono">2</span> Отделка стен: «мазанка», плитка, рейка</figcaption></figure>
+    <figure class="sheet w2 step"><button type="button" data-cap="Оборудование и декор"><img src="img/pb26-5.jpg" alt="Оборудование и декор" loading="lazy"></button><figcaption><span class="mono">3</span> Оборудование и декор</figcaption></figure>
+    <figure class="sheet w2 step"><button type="button" data-cap="Прилавок: высоты и столешница"><img src="img/pb26-7.jpg" alt="Прилавок: высоты и столешница" loading="lazy"></button><figcaption><span class="mono">4</span> Прилавок: высоты и столешница</figcaption></figure>
+    <figure class="sheet w2 step"><button type="button" data-cap="Итог: фриз, лайтбоксы, буквы"><img src="img/pb26-9.jpg" alt="Итог: фриз, лайтбоксы, буквы" loading="lazy"></button><figcaption><span class="mono">5</span> Итог: фриз, лайтбоксы, буквы</figcaption></figure>
+  </div>
+</section>
+
+<!-- KREMLIN -->
+<section class="project" id="kremlin">
+  <div class="passport">
+    <h2>ВТБ Кубок Кремля</h2>
+    <div class="kind">Международный теннисный турнир · три сезона</div>
+    <p>Три года подряд — зоны гостей и спонсоров турнира. В 2019-м, к 30-му турниру: арена с музеем ракеток, стеной победителей и VIP-баром. В 2020-м — зона в ЦСКА. В 2021-м — комплект мебели для спонсорской VIP-зоны, спроектированный как одна коллекция. Гранёные фасады баров в фирменном синем, стойки под ТВ из гофрированного металла, тумбы-кашпо с шаром-арт-объектом, барьеры и экраны из перфолиста.</p>
+    <dl class="spec">
+      <dt>Годы</dt><dd>2019, 2020, 2021</dd>
+      <dt>2021</dt><dd>2 бара, ресепшн, стойки ТВ, тумбы, барьеры-кашпо, защитные экраны</dd>
+      <dt>Роль</dt><dd class="chips"><span class="chip">дизайн</span><span class="chip">проектирование</span><span class="chip off">производство — подрядчик</span></dd>
+    </dl>
+  </div>
+  <div class="sheets">
+    <figure class="sheet w6"><button type="button" data-cap="Большой бар · гранёный фасад с градиентом и золотыми рёбрами"><img src="img/kk-bar.jpg" alt="Большой бар VIP-зоны Кубка Кремля" loading="lazy"></button></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Малый бар"><img src="img/kk-bar2.jpg" alt="Малый бар" loading="lazy"></button><figcaption>Малый бар</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Стойка ТВ с кашпо"><img src="img/kk-tv.jpg" alt="Стойка под ТВ" loading="lazy"></button><figcaption>Стойка ТВ с кашпо</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Тумба с арт-объектом"><img src="img/kk-tumba.jpg" alt="Тумба-кашпо с арт-объектом" loading="lazy"></button><figcaption>Тумба с арт-объектом</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Ресепшн"><img src="img/kk-rec.jpg" alt="Стойка ресепшн" loading="lazy"></button><figcaption>Ресепшн</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Барьеры-кашпо с подсветкой"><img src="img/kk-barrier.jpg" alt="Барьеры-кашпо" loading="lazy"></button><figcaption>Барьеры-кашпо</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Защитные экраны"><img src="img/kk-screen.jpg" alt="Защитные экраны из перфолиста" loading="lazy"></button><figcaption>Защитные экраны</figcaption></figure>
+    <figure class="sheet w6"><span class="label" style="display:block;margin:18px 0 0">2019 · 30-й турнир · арена</span></figure>
+    <figure class="sheet"><button type="button" data-cap="Стена с экспозицией и зелёными кашпо"><img src="img/kk19-1.jpg" alt="Стена с экспозицией и зелёными кашпо" loading="lazy"></button><figcaption>Стена с экспозицией и зелёными кашпо</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Музей ракеток · витрина с подсветкой"><img src="img/kk19-2.jpg" alt="Музей ракеток · витрина с подсветкой" loading="lazy"></button><figcaption>Музей ракеток · витрина с подсветкой</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="VIP-зона с баром"><img src="img/kk19-3.jpg" alt="VIP-зона с баром" loading="lazy"></button><figcaption>VIP-зона с баром</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Стена победителей"><img src="img/kk19-4.jpg" alt="Стена победителей" loading="lazy"></button><figcaption>Стена победителей</figcaption></figure>
+    <figure class="sheet w6"><span class="label" style="display:block;margin:18px 0 0">2020 · ЦСКА</span></figure>
+    <figure class="sheet"><button type="button" data-cap="Зона гостей · портреты игроков, ограждения-кашпо"><img src="img/kk20-1.jpg" alt="Зона гостей · портреты игроков, ограждения-кашпо" loading="lazy"></button><figcaption>Зона гостей · портреты игроков, ограждения-кашпо</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Зал с брендированными панелями"><img src="img/kk20-2.jpg" alt="Зал с брендированными панелями" loading="lazy"></button><figcaption>Зал с брендированными панелями</figcaption></figure>
+  </div>
+</section>
+
+<!-- LUCKY -->
+<section class="project" id="lucky">
+  <div class="passport">
+    <h2>Ресторан LUCKY</h2>
+    <div class="kind">«Еда · место · встречи»</div>
+    <p>Полный цикл для одного заведения: логотип и фирменный стиль, планировка зала, рабочие чертежи мебели и её изготовление. Столы из массива на металлических опорах, диваны, перила второго света с резным узором.</p>
+    <dl class="spec">
+      <dt>Год</dt><dd>2014</dd>
+      <dt>Материалы</dt><dd>массив дерева, металлокаркас, кирпич, мягкая мебель</dd>
+      <dt>Роль</dt><dd class="chips"><span class="chip">бренд</span><span class="chip">интерьер</span><span class="chip">чертежи мебели</span><span class="chip">производство</span></dd>
+    </dl>
+  </div>
+  <div class="sheets">
+    <figure class="sheet w6"><button type="button" data-cap="LUCKY · зал на втором свете"><img src="img/lu-1.jpg" alt="Зал ресторана LUCKY" loading="lazy"></button></figure>
+    <figure class="sheet"><button type="button" data-cap="Стол из массива и диваны"><img src="img/lu-2.jpg" alt="Стол из массива и диван" loading="lazy"></button><figcaption>Стол из массива и диваны</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Детали интерьера"><img src="img/lu-3.jpg" alt="Детали интерьера LUCKY" loading="lazy"></button><figcaption>Детали интерьера</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Планировка и расстановка мебели"><img src="img/lu-4.jpg" alt="Планировка LUCKY" loading="lazy"></button><figcaption>Планировка и расстановка мебели</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Рабочие чертежи: стол, опоры, барный стул"><img src="img/lu-5.jpg" alt="Чертежи мебели LUCKY" loading="lazy"></button><figcaption>Рабочие чертежи мебели</figcaption></figure>
+  </div>
+</section>
+
+<!-- WEST4 -->
+<section class="project" id="west4">
+  <div class="passport">
+    <h2>Кофейня WEST 4</h2>
+    <div class="kind">Coffee brew bar · Остоженка, Москва</div>
+    <p>Логотип и айдентика, интерьер и мебель. Столы и банкетки на металлическом основании со столешницами из массива в нескольких типоразмерах, включая раскладные барные. Старые венские стулья переделаны с патиной.</p>
+    <dl class="spec">
+      <dt>Год</dt><dd>2014</dd>
+      <dt>Материалы</dt><dd>массив, металлокаркас, текстиль</dd>
+      <dt>Роль</dt><dd class="chips"><span class="chip">бренд</span><span class="chip">интерьер</span><span class="chip">мебель</span><span class="chip">производство</span></dd>
+    </dl>
+  </div>
+  <div class="sheets">
+    <figure class="sheet w6"><button type="button" data-cap="Линейка мебели · стол, столик, банкетки"><img src="img/w4-set.jpg" alt="Линейка мебели · стол, столик, банкетки" loading="lazy"></button></figure>
+    <figure class="sheet"><button type="button" data-cap="Кофейня после открытия"><img src="img/w4-photo.jpg" alt="Кофейня после открытия" loading="lazy"></button><figcaption>Кофейня после открытия</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Переделанный венский стул"><img src="img/w4-stool.jpg" alt="Переделанный венский стул" loading="lazy"></button><figcaption>Переделанный венский стул</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Барный стол · два варианта опор"><img src="img/w4-t1.jpg" alt="Барный стол · два варианта опор" loading="lazy"></button><figcaption>Барный стол · два варианта опор</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Раскладной столик"><img src="img/w4-t2.jpg" alt="Раскладной столик" loading="lazy"></button><figcaption>Раскладной столик</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Айдентика · стакан, визитки, листовка"><img src="img/w4-id.jpg" alt="Айдентика · стакан, визитки, листовка" loading="lazy"></button><figcaption>Айдентика · стакан, визитки, листовка</figcaption></figure>
+  </div>
+</section>
+
+<!-- DAGESTAN -->
+<section class="project" id="dagestan">
+  <div class="passport">
+    <h2>Дагестанская лавка</h2>
+    <div class="kind">Стрит-фуд · фудмаркеты и ТЦ</div>
+    <p>Пять лет ведения бренда: логотип, меню, форма персонала и сами точки. Островной павильон с решётчатым деревянным потолком, прилавки из массива, графика на стенах и витринах. Прилавки и киоски делали в мастерской.</p>
+    <dl class="spec">
+      <dt>Годы</dt><dd>2015–2020</dd>
+      <dt>Материалы</dt><dd>массив, рейка, металл, ковровые панно</dd>
+      <dt>Роль</dt><dd class="chips"><span class="chip">бренд</span><span class="chip">проект точки</span><span class="chip">производство</span></dd>
+    </dl>
+  </div>
+  <div class="sheets">
+    <figure class="sheet w6"><button type="button" data-cap="Дагестанская лавка · точка на фудмаркете"><img src="img/dl-p2.jpg" alt="Точка Дагестанской лавки на фудмаркете" loading="lazy"></button></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Островной павильон · эскиз"><img src="img/dl-p3.jpg" alt="Эскиз островного павильона" loading="lazy"></button><figcaption>Островной павильон · эскиз</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Павильон после открытия"><img src="img/dl-p1.jpg" alt="Павильон Дагестанской лавки" loading="lazy"></button><figcaption>Павильон после открытия</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Точка в торговом центре"><img src="img/dl-p4.jpg" alt="Точка в торговом центре" loading="lazy"></button><figcaption>Точка в торговом центре</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Киоск 2019 · Даниловский рынок"><img src="img/dl-k1.jpg" alt="Киоск 2019 · Даниловский рынок" loading="lazy"></button><figcaption>Киоск 2019 · Даниловский рынок</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="«Маленькая лавка» · Даниловский"><img src="img/dl-k2.jpg" alt="«Маленькая лавка» · Даниловский" loading="lazy"></button><figcaption>«Маленькая лавка» · Даниловский</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Прилавок из массива · эскиз"><img src="img/dl-1.jpg" alt="Эскиз прилавка" loading="lazy"></button><figcaption>Прилавок из массива · эскиз</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Павильон из рейки · 2016"><img src="img/dl-k3.jpg" alt="Павильон из рейки · 2016" loading="lazy"></button><figcaption>Павильон из рейки · 2016</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Тандыр лепешка · точка на фудкорте, 2021"><img src="img/tl-1.jpg" alt="Точка Тандыр лепешка" loading="lazy"></button><figcaption>Ещё стрит-фуд: Тандыр лепешка, 2021</figcaption></figure>
+  </div>
+</section>
+
+<!-- ANNIE -->
+<section class="project" id="anniehall">
+  <div class="passport">
+    <h2>Салон красоты Annie Hall</h2>
+    <div class="kind">Мебель на заказ · собственное производство</div>
+    <p>Полный комплект мебели для салона: туалетные столы у зеркал с ящиками, стойка администратора, диван и кресла, полки на фигурных кронштейнах. Эскизы с вариантами обивки и тонировки, затем изготовление в мастерской.</p>
+    <dl class="spec">
+      <dt>Годы</dt><dd>2012–2013</dd>
+      <dt>Материалы</dt><dd>массив сосны с тонировкой, текстиль</dd>
+      <dt>Роль</dt><dd class="chips"><span class="chip">дизайн</span><span class="chip">чертежи</span><span class="chip">производство</span></dd>
+    </dl>
+  </div>
+  <div class="sheets">
+    <figure class="sheet w6"><button type="button" data-cap="Зал салона · рабочие места из массива"><img src="img/ah-1.jpg" alt="Зал салона · рабочие места из массива" loading="lazy"></button></figure>
+    <figure class="sheet"><button type="button" data-cap="Зона ожидания · кресло и полки"><img src="img/ah-2.jpg" alt="Зона ожидания · кресло и полки" loading="lazy"></button><figcaption>Зона ожидания · кресло и полки</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Туалетный стол у зеркала"><img src="img/ah-3.jpg" alt="Туалетный стол у зеркала" loading="lazy"></button><figcaption>Туалетный стол у зеркала</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Ящик туалетного стола"><img src="img/ah-4.jpg" alt="Ящик туалетного стола" loading="lazy"></button><figcaption>Ящик туалетного стола</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Профиль столешницы"><img src="img/ah-6.jpg" alt="Профиль столешницы" loading="lazy"></button><figcaption>Профиль столешницы</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Полка на кронштейнах"><img src="img/ah-5.jpg" alt="Полка на кронштейнах" loading="lazy"></button><figcaption>Полка на кронштейнах</figcaption></figure>
+    <figure class="sheet fit"><button type="button" data-cap="Эскиз · диван и кресло"><img src="img/ah-s1.jpg" alt="Эскиз · диван и кресло" loading="lazy"></button><figcaption>Эскиз · диван и кресло</figcaption></figure>
+    <figure class="sheet fit"><button type="button" data-cap="Эскиз · стойка администратора, тонировки"><img src="img/ah-s2.jpg" alt="Эскиз · стойка администратора, тонировки" loading="lazy"></button><figcaption>Эскиз · стойка администратора, тонировки</figcaption></figure>
+  </div>
+</section>
+
+<!-- FABRIKA -->
+<section class="project" id="fabrika">
+  <div class="passport">
+    <h2>Кафе «Фабрика»</h2>
+    <div class="kind">Лофт на Федоскинской фабрике</div>
+    <p>Интерьер и мебель кафе, сделанные своими силами. Длинный общий стол из массива на массивных опорах вдоль окон, круглые столики и табуреты с мягким сиденьем.</p>
+    <dl class="spec">
+      <dt>Место</dt><dd>Федоскино</dd>
+      <dt>Материалы</dt><dd>массив дерева, металл</dd>
+      <dt>Роль</dt><dd class="chips"><span class="chip">интерьер</span><span class="chip">мебель</span><span class="chip">производство</span></dd>
+    </dl>
+  </div>
+  <div class="sheets">
+    <figure class="sheet w6"><button type="button" data-cap="Кафе «Фабрика» · зал"><img src="img/fab-1.jpg" alt="Зал кафе Фабрика" loading="lazy"></button></figure>
+    <figure class="sheet"><button type="button" data-cap="Общий стол вдоль окон"><img src="img/fab-2.jpg" alt="Общий стол на бетонных опорах" loading="lazy"></button><figcaption>Общий стол вдоль окон</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Столик и табуреты"><img src="img/fab-3.jpg" alt="Столик и табуреты" loading="lazy"></button><figcaption>Столик и табуреты</figcaption></figure>
+  </div>
+</section>
+
+<!-- ZOO -->
+<section class="project" id="zoo">
+  <div class="passport">
+    <h2>Московский зоопарк</h2>
+    <div class="kind">Арт-объекты для территории</div>
+    <p>Концепция объектов, с которыми посетители взаимодействуют: скамейки-бананы у обезьянника, полигональные слоны, скамья-арка и «дерево» в фирменном спектре, которое складывается из элементов с определённой точки. Плюс оформление фасадов павильонов и скворечник «Дом Клюева».</p>
+    <dl class="spec">
+      <dt>Формат</dt><dd>малые архитектурные формы, фасадная графика</dd>
+      <dt>Роль</dt><dd class="chips"><span class="chip">концепция</span><span class="chip">эскизы</span></dd>
+    </dl>
+  </div>
+  <div class="sheets">
+    <figure class="sheet w2"><button type="button" data-cap="Обезьяны · скамейки-бананы"><img src="img/zoo-1.jpg" alt="Скамейки в виде бананов" loading="lazy"></button><figcaption>Скамейки-бананы</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Слоны · полигональные фигуры"><img src="img/zoo-2.jpg" alt="Полигональные слоны" loading="lazy"></button><figcaption>Полигональные слоны</figcaption></figure>
+    <figure class="sheet w2"><button type="button" data-cap="Скамья-арка в фирменном спектре"><img src="img/zoo-3.jpg" alt="Скамья-арка" loading="lazy"></button><figcaption>Скамья-арка</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="«Дерево» из цветных элементов"><img src="img/zoo-4.jpg" alt="Объект-дерево" loading="lazy"></button><figcaption>Объект-дерево</figcaption></figure>
+    <figure class="sheet fit"><button type="button" data-cap="Скворечник «Дом Клюева» · концепт"><img src="img/zoo-bird.jpg" alt="Скворечник «Дом Клюева» · концепт" loading="lazy"></button><figcaption>Скворечник «Дом Клюева» · концепт</figcaption></figure>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog" id="catalog">
+  <div class="cat-head">
+    <h2>Мебель мастерской 42см</h2>
+    <p>Собственная линейка и частные заказы: крашеное дерево с многослойной патиной, массив, простые металлокаркасы. Каждую вещь я рисую и проектирую сам и делаю в мастерской в Федоскино.</p>
+  </div>
+  <div class="cat">
+    <figure class="sheet"><button type="button" data-cap="Шкаф для одежды"><img src="img/c-wardrobe.jpg" alt="Шкаф для одежды" loading="lazy"></button><figcaption>Шкаф для одежды</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Шкаф-витрина"><img src="img/c-cabinet.jpg" alt="Шкаф-витрина" loading="lazy"></button><figcaption>Шкаф-витрина</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Шкаф-пенал"><img src="img/c-pencil.jpg" alt="Шкаф-пенал" loading="lazy"></button><figcaption>Шкаф-пенал</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Стеллаж для обуви"><img src="img/c-shoe.jpg" alt="Стеллаж для обуви" loading="lazy"></button><figcaption>Стеллаж для обуви</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Прикроватные тумбы"><img src="img/c-night.jpg" alt="Прикроватные тумбы" loading="lazy"></button><figcaption>Прикроватные тумбы</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Тумба под раковину · выкрасы"><img src="img/c-vanity.jpg" alt="Тумба под раковину с выкрасами" loading="lazy"></button><figcaption>Тумба под раковину<small>подбор цвета</small></figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Обеденный стол на металлокаркасе"><img src="img/c-table.jpg" alt="Обеденный стол" loading="lazy"></button><figcaption>Обеденный стол</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Стул на металлокаркасе"><img src="img/c-chair.jpg" alt="Стул на металлокаркасе" loading="lazy"></button><figcaption>Стул на металлокаркасе</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Табурет «Козлик»"><img src="img/c-kozlik1.jpg" alt="Табурет Козлик, белый" loading="lazy"></button><figcaption>Табурет «Козлик»<small>белый</small></figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Табурет «Козлик»"><img src="img/c-kozlik2.jpg" alt="Табурет Козлик, чёрный" loading="lazy"></button><figcaption>Табурет «Козлик»<small>чёрный</small></figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Табурет из бука · два варианта"><img src="img/c-beech.jpg" alt="Табурет из бука" loading="lazy"></button><figcaption>Табурет из бука<small>варианты В.1 и В.2</small></figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Табурет с подкосами"><img src="img/c-black.jpg" alt="Чёрный табурет" loading="lazy"></button><figcaption>Табурет-скамья</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Диван"><img src="img/c-sofa.jpg" alt="Диван" loading="lazy"></button><figcaption>Диван</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Детская кроватка · эскиз"><img src="img/c-crib.jpg" alt="Эскиз детской кроватки" loading="lazy"></button><figcaption>Детская кроватка<small>эскиз</small></figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Кроватка-домик на металлокаркасе"><img src="img/c-house.jpg" alt="Кроватка-домик" loading="lazy"></button><figcaption>Кроватка-домик</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Зеркало в раме"><img src="img/c-mirror1.jpg" alt="Зеркало в раме" loading="lazy"></button><figcaption>Зеркало в раме</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Зеркало для ванной"><img src="img/c-mirror2.jpg" alt="Зеркало для ванной" loading="lazy"></button><figcaption>Зеркало для ванной</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Полка «Рустик» с крючками"><img src="img/c-shelf.jpg" alt="Полка Рустик" loading="lazy"></button><figcaption>Полка «Рустик»</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Барная стойка 3 м · частный заказ, образцы массива и тонировки"><img src="img/c-bar.jpg" alt="Эскиз барной стойки с образцами" loading="lazy"></button><figcaption>Барная стойка 3 м<small>частный заказ</small></figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Комод с металлическими фасадами · частный заказ, 2016"><img src="img/c-dresser1.jpg" alt="Комод" loading="lazy"></button><figcaption>Комод<small>частный заказ, 2016</small></figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Буфет и тумбы · частный заказ, 2016"><img src="img/c-dresser2.jpg" alt="Буфет и тумбы" loading="lazy"></button><figcaption>Буфет и тумбы<small>частный заказ, 2016</small></figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Консоль и стол · частный заказ, 2013"><img src="img/c-console.jpg" alt="Консоль и стол" loading="lazy"></button><figcaption>Консоль и стол<small>частный заказ, 2013</small></figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Консоль с резным узором · 2012"><img src="img/c-009.jpg" alt="Консоль" loading="lazy"></button><figcaption>Консоль<small>частный заказ, 2012</small></figcaption></figure>
+  </div>
+<!-- скрыто
+  <div class="cat-head" style="margin-top:56px">
+    <h2 style="font-size:clamp(1.4rem,2.4vw,1.8rem)">Проекты и концепции</h2>
+    <p>Объекты, которые остались на стадии проекта.</p>
+  </div>
+  <div class="cat">
+    <figure class="sheet"><button type="button" data-cap="Торговый стенд «Бритарев» · 2017"><img src="img/p-brit.jpg" alt="Стенд Бритарев" loading="lazy"></button><figcaption>Стенд «Бритарев»<small>проект, 2017</small></figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Навигационный стенд, парк «Перовский» · 2015"><img src="img/p-perovo.jpg" alt="Стенд Перовский" loading="lazy"></button><figcaption>Стенд для парка «Перовский»<small>проект, 2015</small></figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Глэмпинг-домик · концепция, 2019"><img src="img/p-glamp.jpg" alt="Глэмпинг-домик" loading="lazy"></button><figcaption>Глэмпинг-домик<small>концепция, 2019</small></figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Павильон 1664"><img src="img/c-1664.jpg" alt="Павильон 1664" loading="lazy"></button><figcaption>Павильон 1664<small>концепция</small></figcaption></figure>
+  </div>
+-->
+</section>
+
+<footer>
+  <div class="foot">
+    <div>
+      <span class="label">Связаться</span>
+      <h2>Александр Козлов</h2>
+      <div class="contact" style="margin-top:10px"><span>+7 985 492-85-96</span><span>fortytwomoscow@gmail.com</span></div>
+    </div>
+    <span class="mono" style="color:var(--graphite)">Московская область · <a href="grafika/" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Графика и айдентика ↗</a></span>
+  </div>
+</footer>
+</div>
+
+<dialog id="lb" aria-label="Просмотр изображения">
+  <img id="lb-img" alt="">
+  <p><span id="lb-cap"></span><button type="button" id="lb-close">Закрыть</button></p>
+</dialog>
+
+<script>
+(function(){
+  var d=document.getElementById('lb'),im=document.getElementById('lb-img'),cap=document.getElementById('lb-cap');
+  document.querySelectorAll('.sheet button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var i=b.querySelector('img');im.src=i.src;im.alt=i.alt;cap.textContent=b.dataset.cap||i.alt;
+      if(d.showModal)d.showModal();
+    });
+  });
+  document.getElementById('lb-close').addEventListener('click',function(){d.close()});
+  d.addEventListener('click',function(e){if(e.target===d)d.close()});
+})();
+</script>
+
+</html>
