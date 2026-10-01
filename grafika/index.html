@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Александр Козлов · Графика</title>
+<style>
+@font-face{font-family:'Prata';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/prata-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Prata';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/prata-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/golos-text-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/golos-text-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/golos-text-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/golos-text-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/golos-text-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/golos-text-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/jetbrains-mono-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/jetbrains-mono-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/jetbrains-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+</style>
+<style>
+/* Layout: портфолио-альбом. Узкая колонка паспорта проекта слева, листы с эскизами справа; на телефоне всё в одну колонку. */
+:root{
+  --paper:#f3f3ef; --ink:#1c1e1d; --graphite:#666b67; --rule:#d6d8d2;
+  --plate:#ffffff; --accent:#2f5d4f; --accent-soft:#e1ebe6;
+  --f-display:"Prata","Georgia","Times New Roman",serif;
+  --f-body:"Golos Text","Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"JetBrains Mono","Consolas","Menlo",monospace;
+  --wrap:1240px; --gut:clamp(16px,4vw,48px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#151716; --ink:#e7e8e3; --graphite:#9aa09b; --rule:#2e322f;
+  --plate:#fbfbf9; --accent:#8cc0ab; --accent-soft:#1f2c27; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#151716; --ink:#e7e8e3; --graphite:#9aa09b; --rule:#2e322f;
+  --plate:#fbfbf9; --accent:#8cc0ab; --accent-soft:#1f2c27; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0}
+.mono{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.02em}
+.label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite)}
+
+/* ---------- hero ---------- */
+header.hero{padding-block:clamp(40px,7vw,88px) clamp(28px,4vw,48px);border-bottom:1px solid var(--rule)}
+.hero-top{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:baseline}
+.hero h1{font-size:clamp(2.6rem,7.2vw,5.6rem);line-height:.98;letter-spacing:-.01em;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);margin-top:clamp(28px,4vw,44px);align-items:end}
+.thesis{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:36em;margin:0}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;border-top:1px solid var(--rule);padding-top:14px}
+.facts b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1}
+.facts span{font-size:.82rem;color:var(--graphite);display:block;margin-top:6px;line-height:1.35}
+.contact{display:flex;gap:10px 22px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.82rem}
+.contact span{user-select:all}
+
+/* ---------- index ---------- */
+nav.index{padding-block:22px;border-bottom:1px solid var(--rule)}
+nav.index ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 10px}
+nav.index a{display:inline-flex;gap:8px;align-items:baseline;text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:6px 14px;font-size:.9rem;transition:border-color .15s,background .15s}
+nav.index a:hover,nav.index a:focus-visible{border-color:var(--accent);background:var(--accent-soft);outline:none}
+nav.index a .mono{color:var(--graphite);font-size:.72rem}
+
+/* ---------- project ---------- */
+section.project{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(24px,4vw,56px);padding-block:clamp(44px,6vw,80px);border-bottom:1px solid var(--rule)}
+.passport{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start;display:grid;gap:18px}
+.passport h2{font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1.05}
+.passport .kind{color:var(--graphite);font-size:.95rem;margin-top:-8px}
+.passport p{margin:0;font-size:.95rem}
+dl.spec{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px;margin:0;border-top:1px solid var(--rule);padding-top:14px}
+dl.spec dt{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--graphite);padding-top:3px}
+dl.spec dd{margin:0;font-size:.9rem;font-variant-numeric:tabular-nums}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-mono);font-size:.7rem;padding:3px 8px;border-radius:4px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.chip.off{background:transparent;color:var(--graphite);border:1px dashed var(--rule)}
+
+.sheets{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;min-width:0}
+figure{margin:0;min-width:0}
+.sheet{grid-column:span 3}
+.sheet.w6{grid-column:span 6}.sheet.w2{grid-column:span 2}.sheet.w4{grid-column:span 4}
+.sheet button{all:unset;box-sizing:border-box;display:block;width:100%;cursor:zoom-in;background:var(--plate);border-radius:3px;overflow:hidden;box-shadow:0 0 0 1px var(--rule)}
+.sheet button:focus-visible{box-shadow:0 0 0 2px var(--accent)}
+.sheet img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .5s ease}
+.sheet.w6 img{aspect-ratio:auto}
+.sheet.fit img{object-fit:contain}
+.sheet.step img{aspect-ratio:16/9;object-fit:cover}
+.sheet.step:nth-last-child(-n+2){grid-column:span 3}
+.sheet button:hover img{transform:scale(1.015)}
+figcaption{font-size:.8rem;color:var(--graphite);margin-top:7px;line-height:1.35}
+
+/* ---------- catalog ---------- */
+section.catalog{padding-block:clamp(44px,6vw,80px)}
+.cat-head{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(24px,4vw,56px);margin-bottom:32px}
+.cat-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1.05}
+.cat-head p{margin:0;max-width:40em}
+.cat{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.cat .sheet{grid-column:auto}
+.cat .sheet button{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:14px}
+.cat .sheet img{aspect-ratio:auto;width:100%;height:100%;object-fit:contain}
+.cat figcaption{color:var(--ink);font-size:.86rem}
+.cat figcaption small{display:block;color:var(--graphite);font-size:.76rem}
+
+footer{border-top:1px solid var(--ink);padding-block:36px 56px}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:end}
+.foot h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+
+/* ---------- lightbox ---------- */
+dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1800px);max-height:94vh}
+dialog::backdrop{background:rgba(12,14,13,.88)}
+dialog img{max-width:min(96vw,1800px);max-height:86vh;width:auto;background:#fff;border-radius:3px}
+dialog p{color:#e7e8e3;font-size:.85rem;margin:10px 2px 0;display:flex;justify-content:space-between;gap:16px}
+dialog button{all:unset;cursor:pointer;font-family:var(--f-mono);font-size:.75rem;color:#e7e8e3;border:1px solid #555;padding:3px 10px;border-radius:4px}
+
+@media (max-width:860px){
+  .hero-grid,section.project,.cat-head{grid-template-columns:minmax(0,1fr)}
+  .passport{position:static}
+  .sheet,.sheet.w2,.sheet.w4{grid-column:span 6}
+  .sheets{gap:10px}
+}
+@media (max-width:520px){.facts{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.cat{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* masonry */
+.wall{columns:3 280px;column-gap:12px;margin-top:8px}
+.wall.js{columns:auto;display:flex;gap:12px;align-items:flex-start}
+.wall.js .col{flex:1 1 0;min-width:0}
+.tile{break-inside:avoid;margin:0 0 14px}
+.tile button{all:unset;box-sizing:border-box;display:block;width:100%;cursor:zoom-in;border-radius:3px;overflow:hidden;background:var(--plate);box-shadow:0 0 0 1px var(--rule)}
+.tile button:focus-visible{box-shadow:0 0 0 2px var(--accent)}
+.tile img{width:100%;height:auto;transition:transform .5s ease}
+.tile button:hover img{transform:scale(1.015)}
+.tile figcaption .mono{color:var(--accent);font-size:.7rem;margin-left:4px}
+.full{grid-column:1/-1}
+.sub-list{display:grid;gap:40px}
+.sub-head{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(16px,4vw,56px);align-items:baseline;border-top:1px solid var(--rule);padding-top:18px;margin-bottom:14px}
+.sub-head h3{font-family:var(--f-display);font-weight:400;font-size:clamp(1.3rem,2.2vw,1.7rem)}
+.sub-head p{margin:0;color:var(--graphite);font-size:.95rem;max-width:44em}
+@media (max-width:860px){.sub-head{grid-template-columns:minmax(0,1fr)}}
+.years{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <div class="hero-top">
+    <span class="label">Портфолио · графический дизайн и айдентика</span>
+    <div class="contact"><span>+7 985 492-85-96</span><span>fortytwomoscow@gmail.com</span></div>
+  </div>
+  <h1>Александр Козлов.<br>Айдентика <em>большого</em><br>события</h1>
+  <div class="hero-grid">
+    <p class="thesis">Фирменный стиль мероприятий и брендов и его перенос на всё, к чему прикасается посетитель: навигационные башни, сцены, ограждения, пропуска, мерч, полиграфия. Двадцать лет в рекламе и дизайне: арт-директор в BTL-агентствах, затем своё агентство Fortytwocreative.</p>
+    <div class="facts">
+      <div><b>7</b><span>сезонов Фестиваля фейерверков</span></div>
+      <div><b>20+</b><span>лет в дизайне</span></div>
+      <div><b>A→Я</b><span>от логотипа до раскладки для печати</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="index" aria-label="Проекты">
+  <ol>
+    <li><a href="#fireworks">Фестиваль фейерверков «Ростех» <span class="mono">2017–24</span></a></li>
+    <li><a href="#mkclub">МК клуб · МК Ралли <span class="mono">2023–26</span></a></li>
+    <li><a href="#identity">Айдентика</a></li>
+    <li><a href="#zoo">Московский зоопарк · выставка</a></li>
+    <li><a href="../" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Второе портфолио: Мебель и интерьеры ↗</a></li>
+  </ol>
+</nav>
+
+<section class="project" id="fireworks" style="grid-template-columns:minmax(0,1fr)">
+  <div class="cat-head" style="margin-bottom:0">
+    <div>
+      <h2>Международный фестиваль фейерверков «Ростех»</h2>
+      <div class="years"><span class="chip">2017</span><span class="chip">2018</span><span class="chip">2019</span><span class="chip">2020 онлайн</span><span class="chip">2022</span><span class="chip">2023</span><span class="chip">2024 Суздаль</span></div>
+    </div>
+    <div style="display:grid;gap:14px">
+      <p style="margin:0">Семь сезонов подряд вместе с агентством CSA: каждый год новый фирменный стиль фестиваля и его разворот на весь парк. Входные группы и навигационные башни, сцены и пультовые, VIP-зоны и ограждения, карты, пропуска, бейджи, мерч, приглашения и наружная реклама по городу. Для каждого носителя — макет и раскладка для печати по размерам конструкции.</p>
+      <dl class="spec">
+        <dt>Площадки</dt><dd>Братеевский каскадный парк, Москва · Суздаль (2024)</dd>
+        <dt>Роль</dt><dd class="chips"><span class="chip">логотип</span><span class="chip">фирменный стиль</span><span class="chip">навигация</span><span class="chip">оформление площадки</span><span class="chip">мерч и полиграфия</span></dd>
+      </dl>
+    </div>
+  </div>
+  <div>
+    <figure class="sheet w6" style="margin-bottom:14px"><button type="button" data-cap="Фейерверк · 2019"><img src="img/f3-00.jpg" alt="Фейерверк · 2019"></button></figure>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="Артобъект · 2019"><img src="img/f3-01.jpg" alt="Артобъект · 2019" width="1600" height="1065" loading="lazy"></button><figcaption>Артобъект · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Баннер · 2019"><img src="img/f3-02.jpg" alt="Баннер · 2019" width="1600" height="1065" loading="lazy"></button><figcaption>Баннер · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Башня звука · 2019"><img src="img/f3-03.jpg" alt="Башня звука · 2019" width="1600" height="1067" loading="lazy"></button><figcaption>Башня звука · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Башня навигации · 2019"><img src="img/f3-04.jpg" alt="Башня навигации · 2019" width="1600" height="1067" loading="lazy"></button><figcaption>Башня навигации · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Башня навигации · 2019"><img src="img/f3-05.jpg" alt="Башня навигации · 2019" width="1600" height="1067" loading="lazy"></button><figcaption>Башня навигации · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Бейджи · 2019"><img src="img/f3-06.jpg" alt="Бейджи · 2019" width="593" height="446" loading="lazy"></button><figcaption>Бейджи · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Звуковые вышки · 2019"><img src="img/f3-07.jpg" alt="Звуковые вышки · 2019" width="1600" height="1067" loading="lazy"></button><figcaption>Звуковые вышки · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Навигация · 2019"><img src="img/f3-08.jpg" alt="Навигация · 2019" width="1600" height="2400" loading="lazy"></button><figcaption>Навигация · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Режиссёрская · 2019"><img src="img/f3-09.jpg" alt="Режиссёрская · 2019" width="1600" height="1067" loading="lazy"></button><figcaption>Режиссёрская · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Стена на воде · 2019"><img src="img/f3-10.jpg" alt="Стена на воде · 2019" width="1600" height="1067" loading="lazy"></button><figcaption>Стена на воде · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Сцена · 2019"><img src="img/f3-11.jpg" alt="Сцена · 2019" width="1600" height="1067" loading="lazy"></button><figcaption>Сцена · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Сцена · 2019"><img src="img/f3-12.jpg" alt="Сцена · 2019" width="1600" height="1067" loading="lazy"></button><figcaption>Сцена · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Трибуны · 2019"><img src="img/f3-13.jpg" alt="Трибуны · 2019" width="1600" height="1067" loading="lazy"></button><figcaption>Трибуны · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Звук · 2019"><img src="img/f3-14.jpg" alt="Звук · 2019" width="1600" height="1065" loading="lazy"></button><figcaption>Звук · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Экран · 2019"><img src="img/f3-15.jpg" alt="Экран · 2019" width="1600" height="1067" loading="lazy"></button><figcaption>Экран · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Башня 4×4×6 м · Суздаль 2024"><img src="img/f3-16.jpg" alt="Башня 4×4×6 м · Суздаль 2024" width="1600" height="910" loading="lazy"></button><figcaption>Башня 4×4×6 м · Суздаль 2024</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Карта парка · 2022"><img src="img/f3-17.jpg" alt="Карта парка · 2022" width="1280" height="723" loading="lazy"></button><figcaption>Карта парка · 2022</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Сцена · 2017"><img src="img/f3-18.jpg" alt="Сцена · 2017" width="800" height="450" loading="lazy"></button><figcaption>Сцена · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Сцена · 2017"><img src="img/f3-19.jpg" alt="Сцена · 2017" width="1600" height="1068" loading="lazy"></button><figcaption>Сцена · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Сцена · 2017"><img src="img/f3-20.jpg" alt="Сцена · 2017" width="800" height="533" loading="lazy"></button><figcaption>Сцена · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Трибуны · 2017"><img src="img/f3-21.jpg" alt="Трибуны · 2017" width="1600" height="1068" loading="lazy"></button><figcaption>Трибуны · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Сцена · 2017"><img src="img/f3-22.jpg" alt="Сцена · 2017" width="1600" height="880" loading="lazy"></button><figcaption>Сцена · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Башня звука · 2017"><img src="img/f3-23.jpg" alt="Башня звука · 2017" width="1600" height="831" loading="lazy"></button><figcaption>Башня звука · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Бейдж · 2017"><img src="img/f3-24.jpg" alt="Бейдж · 2017" width="1300" height="844" loading="lazy"></button><figcaption>Бейдж · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Карта · 2017"><img src="img/f3-25.jpg" alt="Карта · 2017" width="1600" height="1129" loading="lazy"></button><figcaption>Карта · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Навигация · 2017"><img src="img/f3-26.jpg" alt="Навигация · 2017" width="1234" height="1234" loading="lazy"></button><figcaption>Навигация · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Папка · 2017"><img src="img/f3-27.jpg" alt="Папка · 2017" width="1600" height="1244" loading="lazy"></button><figcaption>Папка · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Приглашение · 2017"><img src="img/f3-28.jpg" alt="Приглашение · 2017" width="1600" height="1100" loading="lazy"></button><figcaption>Приглашение · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Сцена малая · 2017"><img src="img/f3-29.jpg" alt="Сцена малая · 2017" width="1600" height="947" loading="lazy"></button><figcaption>Сцена малая · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Флешка · 2017"><img src="img/f3-30.jpg" alt="Флешка · 2017" width="1600" height="1025" loading="lazy"></button><figcaption>Флешка · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Фудкорт · 2017"><img src="img/f3-31.jpg" alt="Фудкорт · 2017" width="1600" height="643" loading="lazy"></button><figcaption>Фудкорт · 2017</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Наружка · 2018"><img src="img/f3-32.jpg" alt="Наружка · 2018" width="1600" height="1067" loading="lazy"></button><figcaption>Наружка · 2018</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Наружка · 2018"><img src="img/f3-33.jpg" alt="Наружка · 2018" width="1600" height="1201" loading="lazy"></button><figcaption>Наружка · 2018</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Бейджи · 2019"><img src="img/f3-34.jpg" alt="Бейджи · 2019" width="1600" height="985" loading="lazy"></button><figcaption>Бейджи · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Входная группа · 2019"><img src="img/f3-35.jpg" alt="Входная группа · 2019" width="1600" height="1069" loading="lazy"></button><figcaption>Входная группа · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Диплом · 2019"><img src="img/f3-36.jpg" alt="Диплом · 2019" width="1600" height="1131" loading="lazy"></button><figcaption>Диплом · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Диплом · 2019"><img src="img/f3-37.jpg" alt="Диплом · 2019" width="1600" height="1131" loading="lazy"></button><figcaption>Диплом · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Ограждения · 2019"><img src="img/f3-38.jpg" alt="Ограждения · 2019" width="1280" height="674" loading="lazy"></button><figcaption>Ограждения · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Папка · 2019"><img src="img/f3-39.jpg" alt="Папка · 2019" width="1600" height="1082" loading="lazy"></button><figcaption>Папка · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Прессвол · 2019"><img src="img/f3-40.jpg" alt="Прессвол · 2019" width="1280" height="709" loading="lazy"></button><figcaption>Прессвол · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Приглашение · 2019"><img src="img/f3-41.jpg" alt="Приглашение · 2019" width="1600" height="1234" loading="lazy"></button><figcaption>Приглашение · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Пропуск А4 · 2019"><img src="img/f3-42.jpg" alt="Пропуск А4 · 2019" width="1600" height="1131" loading="lazy"></button><figcaption>Пропуск А4 · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Пропуск · 2019"><img src="img/f3-43.jpg" alt="Пропуск · 2019" width="1600" height="1131" loading="lazy"></button><figcaption>Пропуск · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Сумка · 2019"><img src="img/f3-44.jpg" alt="Сумка · 2019" width="1600" height="1075" loading="lazy"></button><figcaption>Сумка · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Сцена · 2019"><img src="img/f3-45.jpg" alt="Сцена · 2019" width="1280" height="1101" loading="lazy"></button><figcaption>Сцена · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Трибуны · 2019"><img src="img/f3-46.jpg" alt="Трибуны · 2019" width="1600" height="811" loading="lazy"></button><figcaption>Трибуны · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Трибуны · 2019"><img src="img/f3-47.jpg" alt="Трибуны · 2019" width="1600" height="811" loading="lazy"></button><figcaption>Трибуны · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Футболка · 2019"><img src="img/f3-48.jpg" alt="Футболка · 2019" width="1600" height="1082" loading="lazy"></button><figcaption>Футболка · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Ограждения Херас · 2019"><img src="img/f3-49.jpg" alt="Ограждения Херас · 2019" width="1600" height="769" loading="lazy"></button><figcaption>Ограждения Херас · 2019</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Сцена · 2022"><img src="img/f3-50.jpg" alt="Сцена · 2022" width="1600" height="1067" loading="lazy"></button><figcaption>Сцена · 2022</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Башня входа · 2022"><img src="img/f3-51.jpg" alt="Башня входа · 2022" width="1600" height="1526" loading="lazy"></button><figcaption>Башня входа · 2022</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Башня звука · 2022"><img src="img/f3-52.jpg" alt="Башня звука · 2022" width="1600" height="1184" loading="lazy"></button><figcaption>Башня звука · 2022</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Башня звука · 2022"><img src="img/f3-53.jpg" alt="Башня звука · 2022" width="1600" height="1235" loading="lazy"></button><figcaption>Башня звука · 2022</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Забор · 2022"><img src="img/f3-54.jpg" alt="Забор · 2022" width="1600" height="769" loading="lazy"></button><figcaption>Забор · 2022</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Стена на воде · 2022"><img src="img/f3-55.jpg" alt="Стена на воде · 2022" width="1600" height="1006" loading="lazy"></button><figcaption>Стена на воде · 2022</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Ограждения Херас · 2022"><img src="img/f3-56.jpg" alt="Ограждения Херас · 2022" width="1600" height="769" loading="lazy"></button><figcaption>Ограждения Херас · 2022</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="project" id="mkclub" style="grid-template-columns:minmax(0,1fr)">
+  <div class="cat-head" style="margin-bottom:0">
+    <div>
+      <h2>МК клуб</h2>
+      <div class="years"><span class="chip">2023–2026</span><span class="chip">постоянный подрядчик</span></div>
+    </div>
+    <div style="display:grid;gap:14px">
+      <p style="margin:0">Клуб путешествий и автопробегов. Для каждой поездки — свой знак и небольшая айдентика, а затем всё, что едет с участниками: одежда и мерч, бейджи и бирки, флаги, оклейка машин, упаковка, полиграфия. Главное событие года — МК Ралли: логотип и базовые графические элементы делает агентство «Пленум», а фирменный стиль каждого сезона на их основе и все носители разрабатываю я.</p>
+      <dl class="spec">
+        <dt>Проекты</dt><dd>МК Ралли 2024–2026, MK Travel (Байкал, Кения, Патагония, Алтай, Молога, Казань), Madway Rally</dd>
+        <dt>Роль</dt><dd class="chips"><span class="chip">знаки</span><span class="chip">мерч и одежда</span><span class="chip">оклейка авто</span><span class="chip">брендинг площадки</span><span class="chip">полиграфия</span></dd>
+      </dl>
+    </div>
+  </div>
+  <div class="sub-list">
+  <div class="sub-block">
+    <div class="sub-head"><h3>МК Ралли · брендинг мероприятия</h3><p>Три сезона, у каждого свой фирменный стиль на основе логотипа ралли: 2024, жёлтый 2025, красный 2026. Старт и финиш, флаги и виндеры, навигация и декор площадки, бейджи, газета участника, меню, мелкая полиграфия и мерч.</p></div>
+    <figure class="sheet w6" style="margin:0 0 14px"><button type="button" data-cap="Флаг · 2026"><img src="img/r-flag26.jpg" alt="Флаг · 2026" loading="lazy"></button></figure>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="Толстовка · 2024"><img src="img/r-hood24.jpg" alt="Толстовка · 2024" width="1024" height="960" loading="lazy"></button><figcaption>Толстовка · 2024</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Футболка · 2024"><img src="img/r-tee24b.jpg" alt="Футболка · 2024" width="1024" height="1024" loading="lazy"></button><figcaption>Футболка · 2024</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Футболка · 2024"><img src="img/r-tee24a.jpg" alt="Футболка · 2024" width="1024" height="865" loading="lazy"></button><figcaption>Футболка · 2024</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Пулдауны с маршрутом · 2024"><img src="img/r-pull24.jpg" alt="Пулдауны с маршрутом · 2024" width="1600" height="1206" loading="lazy"></button><figcaption>Пулдауны с маршрутом · 2024</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Финишная арка · 2024"><img src="img/r-arch24.jpg" alt="Финишная арка · 2024" width="1200" height="800" loading="lazy"></button><figcaption>Финишная арка · 2024</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Машины с флагами на старте · 2025"><img src="img/r-ramflag25.jpg" alt="Машины с флагами на старте · 2025" width="800" height="534" loading="lazy"></button><figcaption>Машины с флагами на старте · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Бейдж команды поддержки · 2025"><img src="img/r-bj25a.jpg" alt="Бейдж команды поддержки · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Бейдж команды поддержки · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Бейдж участника · 2025"><img src="img/r-bj25b.jpg" alt="Бейдж участника · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Бейдж участника · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Бейдж Rally Team · 2025"><img src="img/r-bj25c.jpg" alt="Бейдж Rally Team · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Бейдж Rally Team · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Карта маршрута, 1300 км · 2025"><img src="img/mk-map25.jpg" alt="Карта маршрута, 1300 км · 2025" width="1400" height="739" loading="lazy"></button><figcaption>Карта маршрута, 1300 км · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Футболка · 2025"><img src="img/r-tee25b.jpg" alt="Футболка · 2025" width="1344" height="752" loading="lazy"></button><figcaption>Футболка · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Футболка · 2025"><img src="img/r-tee25c.jpg" alt="Футболка · 2025" width="1344" height="752" loading="lazy"></button><figcaption>Футболка · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Футболка · 2025"><img src="img/r-tee25a.jpg" alt="Футболка · 2025" width="1344" height="752" loading="lazy"></button><figcaption>Футболка · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Виндеры · 2026"><img src="img/mk-wind26.jpg" alt="Виндеры · 2026" width="1400" height="788" loading="lazy"></button><figcaption>Виндеры · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Газета участника А3, разворот · 2026"><img src="img/r-gz26a.jpg" alt="Газета участника А3, разворот · 2026" width="1600" height="900" loading="lazy"></button><figcaption>Газета участника А3, разворот · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Газета участника, кроссворд · 2026"><img src="img/r-gz26b.jpg" alt="Газета участника, кроссворд · 2026" width="1600" height="900" loading="lazy"></button><figcaption>Газета участника, кроссворд · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Бумажная гирлянда · 2026"><img src="img/mk-gir26.jpg" alt="Бумажная гирлянда · 2026" width="1400" height="788" loading="lazy"></button><figcaption>Бумажная гирлянда · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Кардхолдеры · 2026"><img src="img/r-card26.jpg" alt="Кардхолдеры · 2026" width="1600" height="713" loading="lazy"></button><figcaption>Кардхолдеры · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Пулдаун с картой маршрута · 2026"><img src="img/mk-pull26.jpg" alt="Пулдаун с картой маршрута · 2026" width="1400" height="788" loading="lazy"></button><figcaption>Пулдаун с картой маршрута · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Флаг для автографов · 2026"><img src="img/r-auto26.jpg" alt="Флаг для автографов · 2026" width="1600" height="900" loading="lazy"></button><figcaption>Флаг для автографов · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Фудтрак · 2026"><img src="img/r-food26.jpg" alt="Фудтрак · 2026" width="1600" height="2261" loading="lazy"></button><figcaption>Фудтрак · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Флаг · 2024"><img src="img/r-flag24.jpg" alt="Флаг · 2024" width="1600" height="900" loading="lazy"></button><figcaption>Флаг · 2024</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Брендинг бочек · 2025"><img src="img/r-barrel25.jpg" alt="Брендинг бочек · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Брендинг бочек · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Виндеры · 2025"><img src="img/r-wind25.jpg" alt="Виндеры · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Виндеры · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Диджейская стойка · 2025"><img src="img/r-dj25.jpg" alt="Диджейская стойка · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Диджейская стойка · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Дорожные знаки · 2025"><img src="img/r-signs25.jpg" alt="Дорожные знаки · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Дорожные знаки · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Жвачка · 2025"><img src="img/r-gum25.jpg" alt="Жвачка · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Жвачка · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Инсталляция из покрышек · 2025"><img src="img/r-tyres25.jpg" alt="Инсталляция из покрышек · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Инсталляция из покрышек · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Кардхолдер · 2025"><img src="img/r-card25.jpg" alt="Кардхолдер · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Кардхолдер · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Меню А5 · 2025"><img src="img/r-menu25b.jpg" alt="Меню А5 · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Меню А5 · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Меню А5 · 2025"><img src="img/r-menu25a.jpg" alt="Меню А5 · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Меню А5 · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Пулдаун · 2025"><img src="img/r-pull25.jpg" alt="Пулдаун · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Пулдаун · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Ручка · 2025"><img src="img/r-pen25.jpg" alt="Ручка · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Ручка · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Навигационный столб · 2025"><img src="img/r-post25.jpg" alt="Навигационный столб · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Навигационный столб · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Флаг старт-финиш · 2025"><img src="img/r-flagstart25.jpg" alt="Флаг старт-финиш · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Флаг старт-финиш · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Флаг · 2025"><img src="img/r-flag25.jpg" alt="Флаг · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Флаг · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Фотозона на пляже · 2025"><img src="img/r-beach25.jpg" alt="Фотозона на пляже · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Фотозона на пляже · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Бейджи · 2026"><img src="img/r-bj26.jpg" alt="Бейджи · 2026" width="1600" height="900" loading="lazy"></button><figcaption>Бейджи · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Прессвол на старте · 2026"><img src="img/r-press26.jpg" alt="Прессвол на старте · 2026" width="1600" height="900" loading="lazy"></button><figcaption>Прессвол на старте · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Салфетки в упаковке · 2026"><img src="img/r-napkin26.jpg" alt="Салфетки в упаковке · 2026" width="1267" height="1059" loading="lazy"></button><figcaption>Салфетки в упаковке · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Багажные бирки · 2025"><img src="img/r-tags25.jpg" alt="Багажные бирки · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Багажные бирки · 2025</figcaption></figure>
+    </div>
+  </div>
+  <div class="sub-block">
+    <div class="sub-head"><h3>МК Ралли · сувенирная продукция</h3><p>Подарки участникам: настольная игра по мотивам ралли, брендированный огнетушитель в ящике, коробки для одежды.</p></div>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="Настольная игра «За рулём» · 2025"><img src="img/r-game25.jpg" alt="Настольная игра «За рулём» · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Настольная игра «За рулём» · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Коробка игры · 2025"><img src="img/r-gamebox25.jpg" alt="Коробка игры · 2025" width="1600" height="900" loading="lazy"></button><figcaption>Коробка игры · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Коробки для одежды · 2026"><img src="img/r-boxes26b.jpg" alt="Коробки для одежды · 2026" width="1600" height="900" loading="lazy"></button><figcaption>Коробки для одежды · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Коробки для одежды · 2026"><img src="img/mk-box26.jpg" alt="Коробки для одежды · 2026" width="1400" height="788" loading="lazy"></button><figcaption>Коробки для одежды · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Огнетушитель · 2026"><img src="img/r-ext26.jpg" alt="Огнетушитель · 2026" width="1600" height="2534" loading="lazy"></button><figcaption>Огнетушитель · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Ящик для огнетушителя · 2026"><img src="img/mk-crate26.jpg" alt="Ящик для огнетушителя · 2026" width="1400" height="788" loading="lazy"></button><figcaption>Ящик для огнетушителя · 2026</figcaption></figure>
+    </div>
+  </div>
+  <div class="sub-block">
+    <div class="sub-head"><h3>МК Ралли · спецоклейка</h3><p>Оклейка машин участников и VIP-экипажей: по несколько вариантов на сезон, от эскиза до плёнки на машине.</p></div>
+    <figure class="sheet w6" style="margin:0 0 14px"><button type="button" data-cap="VIP-оклейка RAM · 2024"><img src="img/r-vip24a.jpg" alt="VIP-оклейка RAM · 2024" loading="lazy"></button></figure>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="Оклейка на маршруте · 2025"><img src="img/r-wrap25.jpg" alt="Оклейка на маршруте · 2025" width="960" height="640" loading="lazy"></button><figcaption>Оклейка на маршруте · 2025</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="RAM «Горы» · 2026"><img src="img/r-g26.jpg" alt="RAM «Горы» · 2026" width="1600" height="900" loading="lazy"></button><figcaption>RAM «Горы» · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="RAM «Молния» · 2026"><img src="img/r-l26a.jpg" alt="RAM «Молния» · 2026" width="1600" height="900" loading="lazy"></button><figcaption>RAM «Молния» · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="RAM «Молния», вариант · 2026"><img src="img/r-l26b.jpg" alt="RAM «Молния», вариант · 2026" width="1600" height="900" loading="lazy"></button><figcaption>RAM «Молния», вариант · 2026</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="VIP-оклейка RAM, вариант · 2024"><img src="img/r-vip24b.jpg" alt="VIP-оклейка RAM, вариант · 2024" width="1600" height="900" loading="lazy"></button><figcaption>VIP-оклейка RAM, вариант · 2024</figcaption></figure>
+    </div>
+  </div>
+<!-- скрыто
+  <div class="sub-block">
+    <div class="sub-head"><h3>MK Family Rally</h3><p>Семейное ралли клуба: свой знак, брендинг площадки и коллекция одежды в мужском и женском вариантах.</p></div>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="Футболки"><img src="img/ff-2.jpg" alt="Футболки" width="1600" height="1131" loading="lazy"></button><figcaption>Футболки</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Футболки белые"><img src="img/ff-3.jpg" alt="Футболки белые" width="1600" height="1131" loading="lazy"></button><figcaption>Футболки белые</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Бомберы"><img src="img/ff-6.jpg" alt="Бомберы" width="1600" height="1131" loading="lazy"></button><figcaption>Бомберы</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Бомберы, вариант"><img src="img/ff-7.jpg" alt="Бомберы, вариант" width="1600" height="1131" loading="lazy"></button><figcaption>Бомберы, вариант</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Кепки"><img src="img/ff-8.jpg" alt="Кепки" width="1600" height="1131" loading="lazy"></button><figcaption>Кепки</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Панамы"><img src="img/ff-9.jpg" alt="Панамы" width="1600" height="1131" loading="lazy"></button><figcaption>Панамы</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Пижамы"><img src="img/ff-10.jpg" alt="Пижамы" width="1600" height="1131" loading="lazy"></button><figcaption>Пижамы</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Знак MK Rally Friends&amp;Family"><img src="img/mk-ffb1.jpg" alt="Знак MK Rally Friends&amp;Family" width="1400" height="788" loading="lazy"></button><figcaption>Знак MK Rally Friends&amp;Family</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Виндер"><img src="img/mk-ffb2.jpg" alt="Виндер" width="1400" height="788" loading="lazy"></button><figcaption>Виндер</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Надувная арка"><img src="img/mk-ffb4.jpg" alt="Надувная арка" width="1400" height="788" loading="lazy"></button><figcaption>Надувная арка</figcaption></figure>
+    </div>
+  </div>
+-->
+  <div class="sub-block">
+    <div class="sub-head"><h3>MK Travel</h3><p>Знак и мерч для каждой поездки клуба: единая система MK Travel Club и свой символ места.</p></div>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="MK Camp Молога 2026 · знак"><img src="img/t-mo-logo.jpg" alt="MK Camp Молога 2026 · знак" width="1600" height="1131" loading="lazy"></button><figcaption>MK Camp Молога 2026 · знак</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Молога · лонгслив"><img src="img/t-mo-long.jpg" alt="Молога · лонгслив" width="1600" height="1102" loading="lazy"></button><figcaption>Молога · лонгслив</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Молога · панама"><img src="img/t-mo-pan.jpg" alt="Молога · панама" width="1600" height="1107" loading="lazy"></button><figcaption>Молога · панама</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Молога · ремувка"><img src="img/t-mo-rem.jpg" alt="Молога · ремувка" width="1600" height="1105" loading="lazy"></button><figcaption>Молога · ремувка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Молога · футболка"><img src="img/t-mo-tee.jpg" alt="Молога · футболка" width="1600" height="1102" loading="lazy"></button><figcaption>Молога · футболка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Байкал · куртка"><img src="img/t-bk-jk.jpg" alt="Байкал · куртка" width="1600" height="900" loading="lazy"></button><figcaption>Байкал · куртка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Байкал 2025 · знак"><img src="img/t-bk-logo.jpg" alt="Байкал 2025 · знак" width="1600" height="1119" loading="lazy"></button><figcaption>Байкал 2025 · знак</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Байкал · табличка"><img src="img/t-bk-sign.jpg" alt="Байкал · табличка" width="1600" height="900" loading="lazy"></button><figcaption>Байкал · табличка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Байкал · футболка"><img src="img/t-bk-tee.jpg" alt="Байкал · футболка" width="1600" height="900" loading="lazy"></button><figcaption>Байкал · футболка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Байкал · шапка"><img src="img/t-bk-hat.jpg" alt="Байкал · шапка" width="1600" height="900" loading="lazy"></button><figcaption>Байкал · шапка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Кения 2026 · знак"><img src="img/t-ke-logo.jpg" alt="Кения 2026 · знак" width="1600" height="1147" loading="lazy"></button><figcaption>Кения 2026 · знак</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Кения · куртка"><img src="img/t-ke-jk.jpg" alt="Кения · куртка" width="1570" height="1086" loading="lazy"></button><figcaption>Кения · куртка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Кения · наклейка на авто"><img src="img/t-ke-st.jpg" alt="Кения · наклейка на авто" width="1570" height="1083" loading="lazy"></button><figcaption>Кения · наклейка на авто</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Кения · флаг"><img src="img/t-ke-flag.jpg" alt="Кения · флаг" width="1570" height="1083" loading="lazy"></button><figcaption>Кения · флаг</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Кения · футболка"><img src="img/t-ke-tee.jpg" alt="Кения · футболка" width="1574" height="1086" loading="lazy"></button><figcaption>Кения · футболка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Патагония 2025 · знак"><img src="img/t-pt-logo.jpg" alt="Патагония 2025 · знак" width="1600" height="1117" loading="lazy"></button><figcaption>Патагония 2025 · знак</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Патагония · куртка"><img src="img/t-pt-jk.jpg" alt="Патагония · куртка" width="1570" height="1083" loading="lazy"></button><figcaption>Патагония · куртка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Патагония · нанесения"><img src="img/t-pt-app.jpg" alt="Патагония · нанесения" width="1600" height="1131" loading="lazy"></button><figcaption>Патагония · нанесения</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Патагония · футболка"><img src="img/t-pt-tee.jpg" alt="Патагония · футболка" width="1600" height="1132" loading="lazy"></button><figcaption>Патагония · футболка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Алтай 2025 · знак"><img src="img/t-al-logo.jpg" alt="Алтай 2025 · знак" width="1600" height="1175" loading="lazy"></button><figcaption>Алтай 2025 · знак</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Алтай · жилет"><img src="img/t-al-vest.jpg" alt="Алтай · жилет" width="1600" height="1084" loading="lazy"></button><figcaption>Алтай · жилет</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Алтай · меню"><img src="img/t-al-menu.jpg" alt="Алтай · меню" width="1600" height="1108" loading="lazy"></button><figcaption>Алтай · меню</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Алтай · футболка"><img src="img/t-al-tee2.jpg" alt="Алтай · футболка" width="1600" height="1055" loading="lazy"></button><figcaption>Алтай · футболка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Алтай · принт"><img src="img/t-al-print.jpg" alt="Алтай · принт" width="1146" height="866" loading="lazy"></button><figcaption>Алтай · принт</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Алтай · футболка"><img src="img/t-al-tee.jpg" alt="Алтай · футболка" width="1600" height="1095" loading="lazy"></button><figcaption>Алтай · футболка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Алтай · шапка"><img src="img/t-al-hat.jpg" alt="Алтай · шапка" width="1600" height="1361" loading="lazy"></button><figcaption>Алтай · шапка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Казань Утрау 2025 · знак"><img src="img/t-kz-logo.jpg" alt="Казань Утрау 2025 · знак" width="1600" height="900" loading="lazy"></button><figcaption>Казань Утрау 2025 · знак</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Казань Утрау · футболка"><img src="img/t-kz-tee.jpg" alt="Казань Утрау · футболка" width="1600" height="900" loading="lazy"></button><figcaption>Казань Утрау · футболка</figcaption></figure>
+    </div>
+  </div>
+  <div class="sub-block">
+    <div class="sub-head"><h3>Madway Rally · айдентика 2026</h3><p>Ралли в стиле «Безумного Макса», Южная Африка. Для организаторов: логотип, флаги, виндеры, кепки и футболки.</p></div>
+    <figure class="sheet w6" style="margin:0 0 14px"><button type="button" data-cap="Логотип Madway Rally 2026"><img src="img/mw26-logo.jpg" alt="Логотип Madway Rally 2026" loading="lazy"></button></figure>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="Виндеры"><img src="img/mw26-wind.jpg" alt="Виндеры" width="1600" height="900" loading="lazy"></button><figcaption>Виндеры</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Кепка"><img src="img/mw26-cap1.jpg" alt="Кепка" width="1600" height="900" loading="lazy"></button><figcaption>Кепка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Кепка, чёрная"><img src="img/mw26-cap2.jpg" alt="Кепка, чёрная" width="1600" height="900" loading="lazy"></button><figcaption>Кепка, чёрная</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Флаг"><img src="img/mw26-f2.jpg" alt="Флаг" width="1600" height="900" loading="lazy"></button><figcaption>Флаг</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Флаг со знаком"><img src="img/mw26-f1.jpg" alt="Флаг со знаком" width="1600" height="900" loading="lazy"></button><figcaption>Флаг со знаком</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Футболка"><img src="img/mw26-t1.jpg" alt="Футболка" width="1600" height="900" loading="lazy"></button><figcaption>Футболка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Футболка со знаком"><img src="img/mw26-t2.jpg" alt="Футболка со знаком" width="1600" height="900" loading="lazy"></button><figcaption>Футболка со знаком</figcaption></figure>
+    </div>
+  </div>
+  <div class="sub-block">
+    <div class="sub-head"><h3>Madway Rally · машина участника 2024</h3><p>Пикап RAM для участника ралли в эстетике «Безумного Макса»: образ машины, оклейка, навесной декор, изготовленный в мастерской, и футболка экипажа.</p></div>
+    <figure class="sheet w6" style="margin:0 0 14px"><button type="button" data-cap="Пикап на ралли"><img src="img/mw24-field.jpg" alt="Пикап на ралли" loading="lazy"></button></figure>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="Проект · вид три четверти"><img src="img/mw24-34.jpg" alt="Проект · вид три четверти" width="1600" height="1131" loading="lazy"></button><figcaption>Проект · вид три четверти</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Проект · вид сбоку"><img src="img/mw24-side.jpg" alt="Проект · вид сбоку" width="1600" height="925" loading="lazy"></button><figcaption>Проект · вид сбоку</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Проект · вид сзади"><img src="img/mw24-rear.jpg" alt="Проект · вид сзади" width="1600" height="1132" loading="lazy"></button><figcaption>Проект · вид сзади</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Декор · деталь, эскиз с размерами"><img src="img/mw24-e1.jpg" alt="Декор · деталь, эскиз с размерами" width="1600" height="1288" loading="lazy"></button><figcaption>Декор · деталь, эскиз с размерами</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Декор · элемент 640 × 200 мм"><img src="img/mw24-e2.jpg" alt="Декор · элемент 640 × 200 мм" width="1600" height="957" loading="lazy"></button><figcaption>Декор · элемент 640 × 200 мм</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Декор · кунг"><img src="img/mw24-kung.jpg" alt="Декор · кунг" width="1600" height="961" loading="lazy"></button><figcaption>Декор · кунг</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Брод"><img src="img/mw24-p1.jpg" alt="Брод" width="1500" height="1000" loading="lazy"></button><figcaption>Брод</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="На маршруте"><img src="img/mw24-p2.jpg" alt="На маршруте" width="1500" height="1000" loading="lazy"></button><figcaption>На маршруте</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Футболка экипажа · тай-дай, ручная роспись"><img src="img/mw24-tee.jpg" alt="Футболка экипажа · тай-дай, ручная роспись" width="1440" height="1436" loading="lazy"></button><figcaption>Футболка экипажа · тай-дай, ручная роспись</figcaption></figure>
+    </div>
+  </div>
+<!-- скрыто
+  <div class="sub-block">
+    <div class="sub-head"><h3>Другие проекты для клуба</h3><p>JET24, VO25 и оклейка багги.</p></div>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="JET24 · бомбер"><img src="img/o-jt-bomb.jpg" alt="JET24 · бомбер" width="1600" height="993" loading="lazy"></button><figcaption>JET24 · бомбер</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="JET24 · пакет"><img src="img/o-jt-bag.jpg" alt="JET24 · пакет" width="1600" height="1101" loading="lazy"></button><figcaption>JET24 · пакет</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="JET24 · рубашка"><img src="img/o-jt-shirt.jpg" alt="JET24 · рубашка" width="1600" height="1063" loading="lazy"></button><figcaption>JET24 · рубашка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="JET24 · футболка"><img src="img/o-jt-tee1.jpg" alt="JET24 · футболка" width="1568" height="1077" loading="lazy"></button><figcaption>JET24 · футболка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="JET24 · футболка"><img src="img/o-jt-tee2.jpg" alt="JET24 · футболка" width="1600" height="1106" loading="lazy"></button><figcaption>JET24 · футболка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="VO25 · логотип"><img src="img/o-vo-logo.jpg" alt="VO25 · логотип" width="1600" height="1239" loading="lazy"></button><figcaption>VO25 · логотип</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="VO25 · графические элементы"><img src="img/o-vo-el.jpg" alt="VO25 · графические элементы" width="1600" height="1156" loading="lazy"></button><figcaption>VO25 · графические элементы</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Оклейка багги"><img src="img/o-bg1.jpg" alt="Оклейка багги" width="1280" height="960" loading="lazy"></button><figcaption>Оклейка багги</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Оклейка багги"><img src="img/o-bg2.jpg" alt="Оклейка багги" width="1181" height="759" loading="lazy"></button><figcaption>Оклейка багги</figcaption></figure>
+    </div>
+  </div>
+-->
+  </div>
+</section>
+
+<section class="project" id="identity" style="grid-template-columns:minmax(0,1fr)">
+  <div class="cat-head" style="margin-bottom:0">
+    <div><h2>Айдентика</h2></div>
+    <p style="margin:0">Логотипы и фирменные стили для компаний и событий: знак, цвета, правила использования и первые носители.</p>
+  </div>
+  <div class="sub-list">
+  <div class="sub-block">
+    <div class="sub-head"><h3>EraTech <span class="mono" style="font-size:.6em;color:var(--graphite)">2022</span></h3><p>Логотип и визитки.</p></div>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="EraTech · Основной логотип"><img src="img/id-00.jpg" alt="EraTech · Основной логотип" width="1600" height="900" loading="lazy"></button><figcaption>Основной логотип</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="EraTech · На тёмном фоне"><img src="img/id-01.jpg" alt="EraTech · На тёмном фоне" width="1600" height="900" loading="lazy"></button><figcaption>На тёмном фоне</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="EraTech · Визитки и паттерн"><img src="img/id-02.jpg" alt="EraTech · Визитки и паттерн" width="1600" height="900" loading="lazy"></button><figcaption>Визитки и паттерн</figcaption></figure>
+    </div>
+  </div>
+  <div class="sub-block">
+    <div class="sub-head"><h3>Headwork <span class="mono" style="font-size:.6em;color:var(--graphite)">2021</span></h3><p>Логотип и фирменный стиль с брендбуком: версии знака, цвета, правила размещения, деловая документация.</p></div>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="Headwork · Полноцветная версия"><img src="img/id-03.jpg" alt="Headwork · Полноцветная версия" width="1600" height="1131" loading="lazy"></button><figcaption>Полноцветная версия</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Headwork · Монохромная версия"><img src="img/id-04.jpg" alt="Headwork · Монохромная версия" width="1600" height="1131" loading="lazy"></button><figcaption>Монохромная версия</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Headwork · Правила размещения"><img src="img/id-05.jpg" alt="Headwork · Правила размещения" width="1600" height="1131" loading="lazy"></button><figcaption>Правила размещения</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Headwork · Фирменные цвета"><img src="img/id-06.jpg" alt="Headwork · Фирменные цвета" width="1600" height="1131" loading="lazy"></button><figcaption>Фирменные цвета</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Headwork · Визитки"><img src="img/id-07.jpg" alt="Headwork · Визитки" width="1600" height="1132" loading="lazy"></button><figcaption>Визитки</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Headwork · Фирменный бланк"><img src="img/id-08.jpg" alt="Headwork · Фирменный бланк" width="1600" height="1132" loading="lazy"></button><figcaption>Фирменный бланк</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Headwork · Открытка"><img src="img/id-09.jpg" alt="Headwork · Открытка" width="1600" height="1132" loading="lazy"></button><figcaption>Открытка</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Headwork · Логотип"><img src="img/id-10.jpg" alt="Headwork · Логотип" width="1600" height="1131" loading="lazy"></button><figcaption>Логотип</figcaption></figure>
+    </div>
+  </div>
+  <div class="sub-block">
+    <div class="sub-head"><h3>My Place <span class="mono" style="font-size:.6em;color:var(--graphite)">2021</span></h3><p>Логотип для beauty & coffee bar.</p></div>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="My Place · Логотип"><img src="img/id-11.jpg" alt="My Place · Логотип" width="1600" height="1600" loading="lazy"></button><figcaption>Логотип</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="My Place · На тёмном фоне"><img src="img/id-12.jpg" alt="My Place · На тёмном фоне" width="1600" height="1600" loading="lazy"></button><figcaption>На тёмном фоне</figcaption></figure>
+    </div>
+  </div>
+  <div class="sub-block">
+    <div class="sub-head"><h3>PANASIAN</h3><p>Логотип сети азиатского стрит-фуда, 2022–2026: знак из четырёх пиктограмм блюд в «потёртой» версии, вертикальный и горизонтальный варианты. Этот стиль потом лёг на точки на фудкортах.</p></div>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="PANASIAN · Логотип на фирменном красном"><img src="img/id-pa1.jpg" alt="PANASIAN · Логотип на фирменном красном" width="1600" height="1131" loading="lazy"></button><figcaption>Логотип на фирменном красном</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="PANASIAN · Вертикальная версия"><img src="img/id-pa2.jpg" alt="PANASIAN · Вертикальная версия" width="1600" height="1131" loading="lazy"></button><figcaption>Вертикальная версия</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="PANASIAN · Горизонтальная версия"><img src="img/id-pa3.jpg" alt="PANASIAN · Горизонтальная версия" width="1600" height="1131" loading="lazy"></button><figcaption>Горизонтальная версия</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="PANASIAN · На фотографии"><img src="img/id-pa4.jpg" alt="PANASIAN · На фотографии" width="1170" height="827" loading="lazy"></button><figcaption>На фотографии</figcaption></figure>
+    </div>
+  </div>
+  <div class="sub-block">
+    <div class="sub-head"><h3>SAGE World Cup <span class="mono" style="font-size:.6em;color:var(--graphite)">2014</span></h3><p>Логотип международного студенческого конкурса в Москве и буклет участника.</p></div>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="SAGE World Cup 2014 · Логотип"><img src="img/id-13.jpg" alt="SAGE World Cup 2014 · Логотип" width="1152" height="864" loading="lazy"></button><figcaption>Логотип</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="SAGE World Cup 2014 · Буклет"><img src="img/id-14.jpg" alt="SAGE World Cup 2014 · Буклет" width="1494" height="911" loading="lazy"></button><figcaption>Буклет</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="SAGE World Cup 2014 · Разворот буклета"><img src="img/id-15.jpg" alt="SAGE World Cup 2014 · Разворот буклета" width="1551" height="1000" loading="lazy"></button><figcaption>Разворот буклета</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="SAGE World Cup 2014 · Логотип на награждении"><img src="img/id-16.jpg" alt="SAGE World Cup 2014 · Логотип на награждении" width="792" height="529" loading="lazy"></button><figcaption>Логотип на награждении</figcaption></figure>
+    </div>
+  </div>
+  <div class="sub-block">
+    <div class="sub-head"><h3>Sales level <span class="mono" style="font-size:.6em;color:var(--graphite)">2022</span></h3><p>Логотип и графическая система: знак-«уровни», паттерн, логотип в динамике.</p></div>
+    <div class="wall">
+      <figure class="tile"><button type="button" data-cap="Sales level · Основной логотип"><img src="img/id-17.jpg" alt="Sales level · Основной логотип" width="1600" height="900" loading="lazy"></button><figcaption>Основной логотип</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Sales level · На синем фоне"><img src="img/id-18.jpg" alt="Sales level · На синем фоне" width="1600" height="900" loading="lazy"></button><figcaption>На синем фоне</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Sales level · Логотип в динамике"><img src="img/id-19.jpg" alt="Sales level · Логотип в динамике" width="1600" height="900" loading="lazy"></button><figcaption>Логотип в динамике</figcaption></figure>
+      <figure class="tile"><button type="button" data-cap="Sales level · Паттерн"><img src="img/id-20.jpg" alt="Sales level · Паттерн" width="1600" height="900" loading="lazy"></button><figcaption>Паттерн</figcaption></figure>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="project" id="zoo">
+  <div class="passport">
+    <h2>Московский зоопарк</h2>
+    <div class="kind">«Выставка на кругу» · природоохранные программы</div>
+    <p>Серия из двадцати уличных стендов о редких видах и природоохранных программах зоопарка. Единая сетка, три языка, крупные вырезанные фото животных и цветовые пары для разных разделов.</p>
+    <dl class="spec">
+      <dt>Формат</dt><dd>уличные стенды, 3 языка</dd>
+      <dt>Роль</dt><dd class="chips"><span class="chip">макет серии</span><span class="chip">вёрстка</span><span class="chip">подготовка к печати</span></dd>
+    </dl>
+  </div>
+  <div class="sheets">
+    <figure class="sheet w6"><button type="button" data-cap="Амурский тигр"><img src="img/zoo-p1.jpg" alt="Амурский тигр" loading="lazy"></button><figcaption>Амурский тигр</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Стенд на опорах"><img src="img/zoo-s1.jpg" alt="Стенд на опорах" loading="lazy"></button><figcaption>Стенд на опорах</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Манул"><img src="img/zoo-p2.jpg" alt="Манул" loading="lazy"></button><figcaption>Манул</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Белоплечий орлан"><img src="img/zoo-p3.jpg" alt="Белоплечий орлан" loading="lazy"></button><figcaption>Белоплечий орлан</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Японский журавль"><img src="img/zoo-p4.jpg" alt="Японский журавль" loading="lazy"></button><figcaption>Японский журавль</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Сайгак"><img src="img/zoo-p5.jpg" alt="Сайгак" loading="lazy"></button><figcaption>Сайгак</figcaption></figure>
+    <figure class="sheet"><button type="button" data-cap="Кудрявый и розовый пеликаны"><img src="img/zoo-p6.jpg" alt="Кудрявый и розовый пеликаны" loading="lazy"></button><figcaption>Кудрявый и розовый пеликаны</figcaption></figure>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div>
+      <span class="label">Связаться</span>
+      <h2>Александр Козлов</h2>
+      <div class="contact" style="margin-top:10px"><span>+7 985 492-85-96</span><span>fortytwomoscow@gmail.com</span></div>
+    </div>
+    <span class="mono" style="color:var(--graphite)">Московская область · <a href="../" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Мебель и интерьеры ↗</a></span>
+  </div>
+</footer>
+</div>
+
+<dialog id="lb" aria-label="Просмотр изображения">
+  <img id="lb-img" alt="">
+  <p><span id="lb-cap"></span><button type="button" id="lb-close">Закрыть</button></p>
+</dialog>
+
+<script>
+(function(){
+  var d=document.getElementById('lb'),im=document.getElementById('lb-img'),cap=document.getElementById('lb-cap');
+  document.querySelectorAll('.sheet button,.tile button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var i=b.querySelector('img');im.src=i.src;im.alt=i.alt;cap.textContent=b.dataset.cap||i.alt;
+      if(d.showModal)d.showModal();
+    });
+  });
+  document.getElementById('lb-close').addEventListener('click',function(){d.close()});
+  d.addEventListener('click',function(e){if(e.target===d)d.close()});
+})();
+</script>
+<script>
+(function(){
+  function build(){
+    document.querySelectorAll('.wall').forEach(function(w){
+      var tiles=w._tiles||(w._tiles=[].slice.call(w.querySelectorAll('.tile')));
+      var W=w.clientWidth, n=W>900?3:(W>560?2:1);
+      if(w._n===n) return; w._n=n;
+      w.innerHTML=''; w.classList.add('js');
+      var cols=[],h=[];
+      for(var i=0;i<n;i++){var c=document.createElement('div');c.className='col';w.appendChild(c);cols.push(c);h.push(0);}
+      tiles.forEach(function(t){
+        var img=t.querySelector('img'), r=(+img.getAttribute('height')||1)/(+img.getAttribute('width')||1);
+        var j=h.indexOf(Math.min.apply(null,h)); cols[j].appendChild(t); h[j]+=r+0.08;
+      });
+    });
+  }
+  build(); window.addEventListener('resize',build);
+})();
+</script>
+
+</html>
