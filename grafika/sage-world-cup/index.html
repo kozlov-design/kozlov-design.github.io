@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SAGE World Cup · проект</title>
+<style>
+@font-face{font-family:'Prata';font-style:normal;font-weight:400;font-display:swap;src:url(../../fonts/prata-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Prata';font-style:normal;font-weight:400;font-display:swap;src:url(../../fonts/prata-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(../../fonts/golos-text-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(../../fonts/golos-text-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(../../fonts/golos-text-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(../../fonts/golos-text-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(../../fonts/golos-text-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(../../fonts/golos-text-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(../../fonts/jetbrains-mono-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(../../fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(../../fonts/jetbrains-mono-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(../../fonts/jetbrains-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+.draft,.file,.ph-file{display:none!important}
+
+/* Layout: кейс по главам-сезонам. Одинаковый каркас главы: год + палитра + лого, живой кадр, пара «проект → площадка», носители в постоянном порядке. Пунктир — чего не хватает. */
+:root{
+  --paper:#151716; --ink:#e7e8e3; --graphite:#9aa09b; --rule:#2e322f;
+  --plate:#fbfbf9; --accent:#8cc0ab; --accent-soft:#1f2c27; --todo:#e79a72; --todo-soft:#2c1f18; color-scheme:dark;
+  --f-display:"Prata","Georgia","Times New Roman",serif;
+  --f-body:"Golos Text","Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"JetBrains Mono","Consolas","Menlo",monospace;
+  --wrap:1240px; --gut:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.02em;color:var(--graphite)}
+.label{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite);font-weight:400}
+a{color:inherit}
+
+/* draft banner */
+.draft{margin-top:20px;display:flex;gap:10px 16px;flex-wrap:wrap;align-items:center;padding:12px 16px;border:1px dashed var(--todo);background:var(--todo-soft);border-radius:4px;font-size:.9rem}
+.draft b{color:var(--todo);font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* intro */
+header.intro{padding-block:clamp(36px,6vw,72px) clamp(24px,4vw,40px);border-bottom:1px solid var(--rule)}
+.back{font-family:var(--f-mono);font-size:.78rem;text-decoration:none;color:var(--graphite)}
+.back:hover{color:var(--accent)}
+.intro h1{font-size:clamp(2.3rem,6vw,4.6rem);line-height:1;margin-top:16px}
+.intro-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);margin-top:28px;align-items:start}
+.intro-grid p{font-size:1.08rem;max-width:36em}
+dl.facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 16px;margin:0;border-top:1px solid var(--rule);padding-top:14px}
+dl.facts dt{font-family:var(--f-display);font-size:1.6rem;line-height:1}
+dl.facts dd{margin:0;font-size:.9rem;color:var(--graphite);align-self:center}
+
+/* style strip */
+.strip{display:flex;gap:12px;flex-wrap:wrap;padding-block:22px;border-bottom:1px solid var(--rule);align-items:end}
+.strip-item{display:grid;gap:6px;justify-items:center;text-decoration:none;width:96px}
+.strip-item.small{width:auto;border:1px solid var(--rule);border-radius:999px;padding:6px 12px;align-self:center}
+.strip-item .ph{width:96px}
+.strip-item .ph div{padding:6px}
+.strip-item .ph b{font-size:.72rem}
+.strip-item .ph .ph-fmt,.strip-item .ph .ph-tag{display:none}
+
+/* chapters */
+.yearnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--rule)}
+.yearnav ol{list-style:none;margin:0;padding:10px 0;display:flex;gap:6px;flex-wrap:wrap}
+.yearnav a{font-family:var(--f-mono);font-size:.8rem;text-decoration:none;padding:4px 10px;border-radius:999px;border:1px solid transparent}
+.yearnav a:hover,.yearnav a:focus-visible{border-color:var(--accent);outline:none}
+section.chapter{padding-block:clamp(40px,6vw,72px);border-bottom:1px solid var(--rule);display:grid;gap:clamp(18px,2.5vw,28px);scroll-margin-top:56px}
+.ch-head{display:grid;grid-template-columns:auto minmax(0,1fr) 120px;gap:clamp(16px,3vw,40px);align-items:center}
+.ch-year{font-family:var(--f-display);font-size:clamp(3.4rem,9vw,6.5rem);line-height:.85;letter-spacing:-.02em}
+.ch-meta{display:grid;gap:12px;min-width:0}
+.season{font-size:1.05rem;max-width:40em}
+.swatches{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.swatches i{width:22px;height:22px;border-radius:50%;display:block;box-shadow:0 0 0 1px var(--rule)}
+.swatches .mono{margin-left:6px}
+.todo{color:var(--todo);border-left:2px solid var(--todo);padding-left:10px}
+
+.pic{margin:0;min-width:0}
+.pic button{all:unset;box-sizing:border-box;display:block;width:100%;cursor:zoom-in;background:var(--plate);border-radius:3px;overflow:hidden;box-shadow:0 0 0 1px var(--rule)}
+.pic button:focus-visible{box-shadow:0 0 0 2px var(--accent)}
+.pic img{width:100%;aspect-ratio:4/3;object-fit:contain}
+.pic.hero img{aspect-ratio:3/2}
+.pair .pic img{aspect-ratio:3/2}
+figcaption{font-size:.8rem;color:var(--graphite);margin-top:6px;line-height:1.35}
+
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.pair>div{display:grid;gap:8px;align-content:start}
+
+.carriers{display:grid;gap:22px;border-top:1px solid var(--rule);padding-top:20px}
+.carrier{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px}
+.carrier h4{padding-top:4px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+
+/* placeholder */
+.ph{margin:0;max-width:100%;width:100%;border:1.5px dashed var(--todo);background:repeating-linear-gradient(135deg,var(--todo-soft) 0 10px,transparent 10px 20px);border-radius:3px;display:grid;place-items:center;text-align:center}
+.ph div{display:grid;gap:6px;padding:14px;max-width:34em}
+.ph-tag{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--todo)}
+.ph b{font-weight:500;font-size:.88rem;line-height:1.35}
+.file,.ph-file{display:block;font-family:var(--f-mono);font-size:.68rem;color:var(--accent);margin-top:2px;word-break:break-all}
+.ph-fmt{font-family:var(--f-mono);font-size:.7rem;color:var(--graphite)}
+.ph.logo div{padding:8px}
+.ph.logo b{font-size:.74rem}
+
+/* deep dive & extra */
+.sec-head{display:grid;gap:8px;max-width:44em}
+.sec-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem)}
+section.deep,section.extra{padding-block:clamp(40px,6vw,72px);border-bottom:1px solid var(--rule);display:grid;gap:24px;scroll-margin-top:56px}
+.steps{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:12px;align-items:center}
+.step{display:grid;gap:8px;min-width:0}
+.arrow{font-family:var(--f-display);font-size:1.8rem;color:var(--accent)}
+.extra-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) minmax(0,1.2fr);gap:14px;align-items:start;border-top:1px solid var(--rule);padding-top:18px}
+.ex-text{display:grid;gap:8px}
+.ex-text h3{font-size:1.4rem}
+
+/* checklist */
+section.check{padding-block:clamp(40px,6vw,72px);display:grid;gap:18px}
+.check ol{list-style:none;margin:0;padding:0;display:grid}
+.check li{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,240px);gap:14px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:.92rem}
+.check .fmt{text-align:right}
+
+dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1800px);max-height:94vh}
+dialog::backdrop{background:rgba(12,14,13,.88)}
+dialog img{max-width:min(96vw,1800px);max-height:86vh;width:auto;background:#fff;border-radius:3px}
+dialog p{color:#e7e8e3;font-size:.85rem;margin:10px 2px 0;display:flex;justify-content:space-between;gap:16px}
+dialog button{all:unset;cursor:pointer;font-family:var(--f-mono);font-size:.75rem;color:#e7e8e3;border:1px solid #555;padding:3px 10px;border-radius:4px}
+
+@media (max-width:860px){
+  .intro-grid,.ch-head{grid-template-columns:minmax(0,1fr)}
+  .ch-head .ph.logo{width:120px}
+  .carrier{grid-template-columns:minmax(0,1fr);gap:8px}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .arrow{transform:rotate(90deg);justify-self:center}
+  .extra-row{grid-template-columns:minmax(0,1fr)}
+  .check li{grid-template-columns:56px minmax(0,1fr)}
+  .check .fmt{grid-column:2;text-align:left}
+}
+@media (max-width:520px){.pair{grid-template-columns:minmax(0,1fr)}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.intro .label{display:block;margin-top:18px}
+.carrier{grid-template-columns:minmax(0,1fr)!important}
+.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:640px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pic img{aspect-ratio:auto!important;height:auto}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<header class="intro">
+  <a class="back" href="../#projects">← Графика и айдентика</a>
+  <span class="label">Проекты · 2014</span>
+  <h1>SAGE World Cup</h1>
+  <div class="intro-grid"><p>Логотип и фирменный стиль мероприятия в Москве. Баннеры, заставки для экранов, мерч (блокноты, папки, ручки, флешки) и футболки.</p><dl class="facts"><dt>2014</dt><dd>год</dd></dl></div>
+  <div class="draft"><b>Черновик</b><span>Картинки берутся из папки «03 Проекты\2014 SAGE World Cup» в порядке номеров в начале имени. Файл «главное-фото» — большой кадр, «описание.txt» — текст.</span></div>
+</header>
+<section class="chapter" id="c0"><figure class="pic hero"><button type="button" data-cap="Логотип"><img src="v2/hero.jpg" alt="Логотип" width="1800" height="1200" style="object-fit:cover"></button><figcaption>Логотип<span class="file">01 Логотип.jpg</span></figcaption></figure><div class="carriers"><div class="carrier"><h4 class="label">Галерея</h4><div class="tiles"><figure class="pic"><button type="button" data-cap="Буклет"><img src="v2/01.jpg" alt="Буклет" width="1600" height="1067" loading="lazy" style="object-fit:cover"></button><figcaption>Буклет<span class="file">02 Буклет.jpg</span></figcaption></figure><figure class="pic"><button type="button" data-cap="Разворот буклета"><img src="v2/02.jpg" alt="Разворот буклета" width="1600" height="1067" loading="lazy" style="object-fit:cover"></button><figcaption>Разворот буклета<span class="file">03 Разворот буклета.jpg</span></figcaption></figure><figure class="pic"><button type="button" data-cap="Логотип на награждении"><img src="v2/03.jpg" alt="Логотип на награждении" width="1600" height="1067" loading="lazy" style="object-fit:cover"></button><figcaption>Логотип на награждении<span class="file">04 Логотип на награждении.jpg</span></figcaption></figure><figure class="pic"><button type="button" data-cap="Полиграфическая продукция"><img src="v2/04.jpg" alt="Полиграфическая продукция" width="1600" height="1067" loading="lazy" style="object-fit:cover"></button><figcaption>Полиграфическая продукция<span class="file">05 Полиграфическая продукция.jpg</span></figcaption></figure><figure class="pic"><button type="button" data-cap="Логотип ЧБ"><img src="v2/05.jpg" alt="Логотип ЧБ" width="1600" height="1067" loading="lazy" style="object-fit:cover"></button><figcaption>Логотип ЧБ<span class="file">06 Логотип ЧБ.jpg</span></figcaption></figure></div></div></div></section>
+
+
+</div>
+
+<dialog id="lb" aria-label="Просмотр изображения">
+  <img id="lb-img" alt="">
+  <p><span id="lb-cap"></span><button type="button" id="lb-close">Закрыть</button></p>
+</dialog>
+<script>
+(function(){
+  var d=document.getElementById('lb'),im=document.getElementById('lb-img'),cap=document.getElementById('lb-cap');
+  document.querySelectorAll('.pic button').forEach(function(b){
+    b.addEventListener('click',function(){var i=b.querySelector('img');im.src=i.src;im.alt=i.alt;cap.textContent=b.dataset.cap||i.alt;if(d.showModal)d.showModal();});
+  });
+  document.getElementById('lb-close').addEventListener('click',function(){d.close()});
+  d.addEventListener('click',function(e){if(e.target===d)d.close()});
+})();
+</script>
+
+</body>
+</html>

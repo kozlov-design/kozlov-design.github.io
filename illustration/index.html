@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Иллюстрация · Александр Козлов</title>
+<style>
+@font-face{font-family:'Prata';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/prata-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Prata';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/prata-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/golos-text-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/golos-text-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/golos-text-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/golos-text-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/golos-text-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/golos-text-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/jetbrains-mono-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/jetbrains-mono-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/jetbrains-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+.draft,.file,.ph-file{display:none!important}
+
+:root{
+  --paper:#151716; --ink:#e7e8e3; --graphite:#9aa09b; --rule:#2e322f;
+  --plate:#fbfbf9; --accent:#8cc0ab; --accent-soft:#1f2c27; color-scheme:dark;
+  --f-display:"Prata","Georgia","Times New Roman",serif;
+  --f-body:"Golos Text","Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"JetBrains Mono","Consolas","Menlo",monospace;
+  --wrap:1240px; --gut:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+.mono{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.02em;color:var(--graphite)}
+.label{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite)}
+header.intro{padding-block:clamp(36px,6vw,72px) clamp(24px,4vw,40px);border-bottom:1px solid var(--rule)}
+.back{font-family:var(--f-mono);font-size:.78rem;text-decoration:none;color:var(--graphite)}
+.back:hover{color:var(--accent)}
+.intro h1{font-size:clamp(2.3rem,6vw,4.6rem);line-height:1;margin-top:16px}
+.intro-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);margin-top:28px;align-items:start}
+.intro-grid p{font-size:1.08rem;max-width:36em}
+dl.facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 16px;margin:0;border-top:1px solid var(--rule);padding-top:14px}
+dl.facts dt{font-family:var(--f-display);font-size:1.6rem;line-height:1}
+dl.facts dd{margin:0;font-size:.9rem;color:var(--graphite);align-self:center}
+nav.secnav{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--rule)}
+nav.secnav ol{list-style:none;margin:0;padding:10px 0;display:flex;gap:6px;flex-wrap:wrap}
+nav.secnav a{font-family:var(--f-mono);font-size:.8rem;text-decoration:none;padding:4px 10px;border-radius:999px;border:1px solid transparent}
+nav.secnav a:hover,nav.secnav a:focus-visible{border-color:var(--accent);outline:none}
+section.block{padding-block:clamp(40px,6vw,72px);border-bottom:1px solid var(--rule);display:grid;gap:clamp(18px,2.5vw,28px);scroll-margin-top:52px}
+.b-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:clamp(16px,4vw,48px);align-items:start}
+.b-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.08}
+.b-head .label{display:block;margin-bottom:10px}
+.b-head .yr{display:block;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.08em;color:var(--graphite);margin-top:12px}
+.b-head p{max-width:40em}
+.b-head p a{color:var(--accent)}
+.pic{margin:0;min-width:0}
+.pic button{all:unset;box-sizing:border-box;display:block;width:100%;cursor:zoom-in;background:var(--plate);border-radius:3px;overflow:hidden;box-shadow:0 0 0 1px var(--rule)}
+.pic button:focus-visible{box-shadow:0 0 0 2px var(--accent)}
+.pic img{width:100%;height:auto;transition:opacity .15s}
+.pic button:hover img{opacity:.9}
+figcaption{font-size:.8rem;color:var(--graphite);margin-top:6px;line-height:1.35}
+.g-sq{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.g-sq .pic img{aspect-ratio:1/1;object-fit:cover}
+.g-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.g-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.g-3 .pic img{aspect-ratio:3/2;object-fit:cover}
+.jrow{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+.more{font-family:var(--f-mono);font-size:.8rem;color:var(--accent);text-decoration:none;justify-self:start}
+.more:hover{text-decoration:underline}
+footer{padding-block:40px;color:var(--graphite);font-size:.85rem}
+dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1800px);max-height:94vh}
+dialog::backdrop{background:rgba(12,14,13,.9)}
+dialog img{max-width:min(96vw,1800px);max-height:86vh;width:auto;background:#fff;border-radius:3px}
+dialog p{color:#e7e8e3;font-size:.85rem;margin:10px 2px 0;display:flex;justify-content:space-between;gap:16px}
+dialog button{all:unset;cursor:pointer;font-family:var(--f-mono);font-size:.75rem;color:#e7e8e3;border:1px solid #555;padding:3px 10px;border-radius:4px}
+@media (max-width:860px){
+  .intro-grid,.b-head{grid-template-columns:minmax(0,1fr)}
+  .g-sq{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .g-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  .g-2{grid-template-columns:minmax(0,1fr)}
+  .g-sq{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .jrow{flex-direction:column}
+  .jrow .pic{flex:none!important;width:100%}
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<header class="intro">
+  <a class="back" href="../grafika/">← Графика и айдентика</a> <span class="mono">·</span> <a class="back" href="../">Мебель и интерьеры ↗</a>
+  <h1>Иллюстрация</h1>
+  <div class="intro-grid">
+    <p>Авторская чёрно-белая графика — в цифре и на бумаге — и иллюстрации для коммерческих проектов.</p>
+    <dl class="facts">
+      <dt>500+</dt><dd>работ в блоге @1h_sktch с 2020 года</dd>
+      <dt>А1</dt><dd>формат бумажной серии: аэрозоль, маркер, трафареты</dd>
+      <dt>2</dt><dd>избранных коммерческих проекта: «Авангард» и «Метро времени»</dd>
+    </dl>
+  </div>
+</header>
+
+<nav class="secnav" aria-label="Разделы"><ol>
+<li><a href="#digital">Диджитал</a></li><li><a href="#paper">Бумага</a></li><li><a href="#avangard">Авангард</a></li><li><a href="#metro">Метро времени</a></li>
+</ol></nav>
+
+<section class="block" id="digital">
+  <div class="b-head"><div><span class="label">Серия</span><h2>Диджитал</h2><span class="yr">2020–2026 · 35 работ из блога</span></div><p>Некоммерческие иллюстрации из блога <a href="https://www.instagram.com/1h_sktch/" target="_blank" rel="noopener">@1h_sktch</a>. Блог ведётся с 2020 года для развития техники рисования: за это время сложился собственный стиль, нарисовано более 500 работ.</p></div>
+  <div class="g-sq"><figure class="pic" ><button type="button" data-cap=""><img src="i2/d00.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d01.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d02.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d03.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d04.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d05.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d06.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d07.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d08.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d09.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d10.jpg" alt="Иллюстрация" width="1200" height="1200" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d11.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d12.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d13.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d14.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d15.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d16.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d17.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d18.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d19.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d20.jpg" alt="Иллюстрация" width="1200" height="1200" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d21.jpg" alt="Иллюстрация" width="1200" height="1200" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d22.jpg" alt="Иллюстрация" width="1200" height="1200" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d23.jpg" alt="Иллюстрация" width="1200" height="1200" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d24.jpg" alt="Иллюстрация" width="1200" height="1200" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d25.jpg" alt="Иллюстрация" width="1200" height="1200" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d26.jpg" alt="Иллюстрация" width="1200" height="1200" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d27.jpg" alt="Иллюстрация" width="1200" height="1200" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d28.jpg" alt="Иллюстрация" width="1200" height="1200" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d29.jpg" alt="Иллюстрация" width="1200" height="1200" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d30.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d31.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d32.jpg" alt="Иллюстрация" width="956" height="956" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d33.jpg" alt="Иллюстрация" width="1200" height="1200" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/d34.jpg" alt="Иллюстрация" width="1200" height="1200" loading="lazy"></button></figure></div>
+</section>
+
+<section class="block" id="paper">
+  <div class="b-head"><div><span class="label">Серия</span><h2>Бумага</h2><span class="yr">формат А1</span></div><p>Работы на бумаге формата А1: чёрная аэрозольная краска, чёрный маркер и трафареты, вырезанные вручную. Основа — иллюстрации из блога: для бумаги отобраны работы, которые хорошо смотрятся в интерьере.</p></div>
+  <div class="g-2"><figure class="pic" ><button type="button" data-cap=""><img src="i2/p00.jpg" alt="Иллюстрация" width="1654" height="1170" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/p01.jpg" alt="Иллюстрация" width="1654" height="1170" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/p02.jpg" alt="Иллюстрация" width="1654" height="1170" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/p03.jpg" alt="Иллюстрация" width="1654" height="1170" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/p04.jpg" alt="Иллюстрация" width="1654" height="1170" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/p05.jpg" alt="Иллюстрация" width="1654" height="1170" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/p06.jpg" alt="Иллюстрация" width="1654" height="1170" loading="lazy"></button></figure><figure class="pic" ><button type="button" data-cap=""><img src="i2/p07.jpg" alt="Иллюстрация" width="1654" height="1170" loading="lazy"></button></figure></div>
+</section>
+
+<section class="block" id="avangard">
+  <div class="b-head"><div><span class="label">Проект</span><h2>Авангард</h2><span class="yr">2023</span></div><p>Оформление пространства хоккейной академии «Авангард». Стиль и фирменный паттерн, иллюстрации на темы хоккея и клубной философии, типографика.</p></div>
+  <figure class="pic" ><button type="button" data-cap="Крылья крупно"><img src="i2/bh.jpg" alt="Крылья крупно" width="1800" height="1200" loading="lazy"></button><figcaption>Крылья крупно</figcaption></figure>
+  <div class="g-3"><figure class="pic" ><button type="button" data-cap="Оформление"><img src="i2/b00.jpg" alt="Оформление" width="1400" height="933" loading="lazy"></button><figcaption>Оформление</figcaption></figure><figure class="pic" ><button type="button" data-cap="Паттерн на стенах"><img src="i2/b01.jpg" alt="Паттерн на стенах" width="1400" height="933" loading="lazy"></button><figcaption>Паттерн на стенах</figcaption></figure><figure class="pic" ><button type="button" data-cap="Паттерн красный"><img src="i2/b02.jpg" alt="Паттерн красный" width="1400" height="933" loading="lazy"></button><figcaption>Паттерн красный</figcaption></figure><figure class="pic" ><button type="button" data-cap="Паттерн бежевый"><img src="i2/b03.jpg" alt="Паттерн бежевый" width="1400" height="933" loading="lazy"></button><figcaption>Паттерн бежевый</figcaption></figure><figure class="pic" ><button type="button" data-cap="Типографика"><img src="i2/b04.jpg" alt="Типографика" width="1400" height="933" loading="lazy"></button><figcaption>Типографика</figcaption></figure><figure class="pic" ><button type="button" data-cap="Типографика на стене беж"><img src="i2/b05.jpg" alt="Типографика на стене беж" width="1400" height="933" loading="lazy"></button><figcaption>Типографика на стене беж</figcaption></figure><figure class="pic" ><button type="button" data-cap="Типографика в проходе"><img src="i2/b06.jpg" alt="Типографика в проходе" width="1400" height="933" loading="lazy"></button><figcaption>Типографика в проходе</figcaption></figure><figure class="pic" ><button type="button" data-cap="Цитата"><img src="i2/b07.jpg" alt="Цитата" width="1400" height="933" loading="lazy"></button><figcaption>Цитата</figcaption></figure><figure class="pic" ><button type="button" data-cap="Портреты"><img src="i2/b08.jpg" alt="Портреты" width="1400" height="933" loading="lazy"></button><figcaption>Портреты</figcaption></figure><figure class="pic" ><button type="button" data-cap="Космос"><img src="i2/b09.jpg" alt="Космос" width="1400" height="933" loading="lazy"></button><figcaption>Космос</figcaption></figure><figure class="pic" ><button type="button" data-cap="Крылья на стене"><img src="i2/b10.jpg" alt="Крылья на стене" width="1400" height="933" loading="lazy"></button><figcaption>Крылья на стене</figcaption></figure><figure class="pic" ><button type="button" data-cap="Крылья"><img src="i2/b11.jpg" alt="Крылья" width="1400" height="933" loading="lazy"></button><figcaption>Крылья</figcaption></figure><figure class="pic" ><button type="button" data-cap="Пас"><img src="i2/b12.jpg" alt="Пас" width="1400" height="933" loading="lazy"></button><figcaption>Пас</figcaption></figure><figure class="pic" ><button type="button" data-cap="Вбрасывание"><img src="i2/b13.jpg" alt="Вбрасывание" width="1400" height="933" loading="lazy"></button><figcaption>Вбрасывание</figcaption></figure><figure class="pic" ><button type="button" data-cap="Паттерн на стене"><img src="i2/b14.jpg" alt="Паттерн на стене" width="1400" height="933" loading="lazy"></button><figcaption>Паттерн на стене</figcaption></figure><figure class="pic" ><button type="button" data-cap="Стена с текстом"><img src="i2/b15.jpg" alt="Стена с текстом" width="1400" height="933" loading="lazy"></button><figcaption>Стена с текстом</figcaption></figure><figure class="pic" ><button type="button" data-cap="Портрет на стене"><img src="i2/b16.jpg" alt="Портрет на стене" width="1400" height="933" loading="lazy"></button><figcaption>Портрет на стене</figcaption></figure><figure class="pic" ><button type="button" data-cap="Паттерн"><img src="i2/b17.jpg" alt="Паттерн" width="1400" height="933" loading="lazy"></button><figcaption>Паттерн</figcaption></figure><figure class="pic" ><button type="button" data-cap="Типографика"><img src="i2/b18.jpg" alt="Типографика" width="1400" height="933" loading="lazy"></button><figcaption>Типографика</figcaption></figure></div>
+  <a class="more" href="../grafika/avangard/">Смотреть проект целиком →</a>
+</section>
+
+<section class="block" id="metro">
+  <div class="b-head"><div><span class="label">Проект</span><h2>Метро времени</h2><span class="yr">2019</span></div><p>Нарисована и спроектирована серия интерьеров для интерактивного аттракциона «Метро времени».</p></div>
+  <figure class="pic" data-hero><button type="button" data-cap=""><img src="i2/m00.jpg" alt="Иллюстрация" width="2400" height="1502" loading="lazy"></button></figure>
+  <div class="jgal"><div class="jrow"><figure class="pic" style="flex:1.8501 1 0" ><button type="button" data-cap=""><img src="i2/m01.jpg" alt="Иллюстрация" width="2000" height="1081" loading="lazy"></button></figure><figure class="pic" style="flex:1.8232 1 0" ><button type="button" data-cap=""><img src="i2/m02.jpg" alt="Иллюстрация" width="2000" height="1097" loading="lazy"></button></figure></div><div class="jrow"><figure class="pic" style="flex:1.8501 1 0" ><button type="button" data-cap=""><img src="i2/m03.jpg" alt="Иллюстрация" width="2000" height="1081" loading="lazy"></button></figure><figure class="pic" style="flex:1.8484 1 0" ><button type="button" data-cap=""><img src="i2/m04.jpg" alt="Иллюстрация" width="2000" height="1082" loading="lazy"></button></figure></div><div class="jrow"><figure class="pic" style="flex:1.8553 1 0" ><button type="button" data-cap="Вестибюль"><img src="i2/m05.jpg" alt="Вестибюль" width="2000" height="1078" loading="lazy"></button><figcaption>Вестибюль</figcaption></figure><figure class="pic" style="flex:1.8570 1 0" ><button type="button" data-cap="Коридор с дверьми"><img src="i2/m06.jpg" alt="Коридор с дверьми" width="2000" height="1077" loading="lazy"></button><figcaption>Коридор с дверьми</figcaption></figure></div><div class="jrow"><figure class="pic" style="flex:1.7778 1 0" ><button type="button" data-cap="Комната приветствия"><img src="i2/m07.jpg" alt="Комната приветствия" width="2000" height="1125" loading="lazy"></button><figcaption>Комната приветствия</figcaption></figure><figure class="pic" style="flex:1.8570 1 0" ><button type="button" data-cap="Комната приветствия"><img src="i2/m08.jpg" alt="Комната приветствия" width="2000" height="1077" loading="lazy"></button><figcaption>Комната приветствия</figcaption></figure></div><div class="jrow"><figure class="pic" style="flex:1.8553 1 0" ><button type="button" data-cap="Коридор"><img src="i2/m09.jpg" alt="Коридор" width="2000" height="1078" loading="lazy"></button><figcaption>Коридор</figcaption></figure><figure class="pic" style="flex:1.1987 1 0" ><button type="button" data-cap="Турбюро"><img src="i2/m10.jpg" alt="Турбюро" width="1526" height="1273" loading="lazy"></button><figcaption>Турбюро</figcaption></figure><figure class="pic" style="flex:1.8553 1 0" ><button type="button" data-cap="Турбюро"><img src="i2/m11.jpg" alt="Турбюро" width="2000" height="1078" loading="lazy"></button><figcaption>Турбюро</figcaption></figure></div><div class="jrow"><figure class="pic" style="flex:1.8570 1 0" ><button type="button" data-cap="Турбюро"><img src="i2/m12.jpg" alt="Турбюро" width="2000" height="1077" loading="lazy"></button><figcaption>Турбюро</figcaption></figure><figure class="pic" style="flex:1.8553 1 0" ><button type="button" data-cap="Турбюро"><img src="i2/m13.jpg" alt="Турбюро" width="2000" height="1078" loading="lazy"></button><figcaption>Турбюро</figcaption></figure></div><div class="jrow"><figure class="pic" style="flex:1.8553 1 0" ><button type="button" data-cap="Полиция"><img src="i2/m14.jpg" alt="Полиция" width="2000" height="1078" loading="lazy"></button><figcaption>Полиция</figcaption></figure><figure class="pic" style="flex:1.8553 1 0" ><button type="button" data-cap="Полиция"><img src="i2/m15.jpg" alt="Полиция" width="2000" height="1078" loading="lazy"></button><figcaption>Полиция</figcaption></figure></div><div class="jrow"><figure class="pic" style="flex:1.8570 1 0" ><button type="button" data-cap="Комната инструктажа"><img src="i2/m16.jpg" alt="Комната инструктажа" width="2000" height="1077" loading="lazy"></button><figcaption>Комната инструктажа</figcaption></figure><figure class="pic" style="flex:1.8553 1 0" ><button type="button" data-cap="Коридор фастпасс"><img src="i2/m17.jpg" alt="Коридор фастпасс" width="2000" height="1078" loading="lazy"></button><figcaption>Коридор фастпасс</figcaption></figure></div><div class="jrow"><figure class="pic" style="flex:1.5974 1 0" ><button type="button" data-cap="Пульт"><img src="i2/m18.jpg" alt="Пульт" width="2000" height="1252" loading="lazy"></button><figcaption>Пульт</figcaption></figure><figure class="pic" style="flex:1.8570 1 0" ><button type="button" data-cap="Музей"><img src="i2/m19.jpg" alt="Музей" width="2000" height="1077" loading="lazy"></button><figcaption>Музей</figcaption></figure></div></div>
+</section>
+
+<footer>Александр Козлов · <a href="../grafika/">Графика и айдентика</a> · <a href="../">Мебель и интерьеры</a></footer>
+</div>
+
+<dialog id="lb"><img alt=""><p><span></span><button type="button">Закрыть ✕</button></p></dialog>
+<script>
+(()=>{const d=document.getElementById('lb'),im=d.querySelector('img'),cap=d.querySelector('span');
+document.addEventListener('click',e=>{const b=e.target.closest('.pic button');if(b){const i=b.querySelector('img');im.src=i.currentSrc||i.src;im.alt=i.alt;cap.textContent=b.dataset.cap||'';d.showModal();}});
+d.addEventListener('click',e=>{if(e.target===d||e.target.tagName==='BUTTON')d.close();});})();
+</script>
+
+</body>
+</html>
